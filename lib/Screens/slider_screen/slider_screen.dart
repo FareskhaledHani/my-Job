@@ -1,9 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:finalproject/Screens/cereate_acount/cereate_acount.dart';
+import 'package:finalproject/Screens/cereate_acount/controller.dart';
 import 'package:finalproject/Screens/slider_screen/constan.dart';
 import 'package:finalproject/Screens/slider_screen/extract_widget.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -11,6 +14,8 @@ class HomePage extends StatefulWidget {
 }
 class _HomePageState extends State<HomePage> {
   CarouselController buttonCarouselController = CarouselController();
+  final MyControoller MyControooller = Get.put(MyControoller());
+
 
   @override
   Widget build(BuildContext context) {
@@ -150,13 +155,11 @@ final List<Widget> contents = [
               ),
               Padding(
                 padding: const EdgeInsets.only(top: 50),
-                child:
-                  ElevatedButton(onPressed: () {
-                  },
-                  child: Text('GetStarted'),
+
+                  child:nextButton(buttonText: 'Getstarted', onpressed:(){Get.toNamed('/page1'); }) ,
 
                   )
-              )
+
             ],
           ),
         ),

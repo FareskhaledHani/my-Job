@@ -42,6 +42,12 @@ dependencies:
   firebase_core:
   firebase_database:
   google_sign_in: ^6.0.2
+  flutter_facebook_auth:
+  font_awesome_flutter:
+  flutter_bloc: ^8.1.3
+
+
+
 
 
 
@@ -83,6 +89,28 @@ flutter:
     - images/create_acount/Management Category.png
     - images/create_acount/Information technology category.png
     - images/create_acount/Research and Analytics category.png
+    - images/create_acount/
+    - images/create_acount/flag2.png
+    - images/create_acount/flag3.png
+    - images/create_acount/flag4.png
+    - images/create_acount/flag5.png
+    - images/create_acount/flag6.png
+    - images/create_acount/flag7.png
+    - images/create_acount/flag8.png
+    - images/create_acount/flag9.png
+    - images/create_acount/flag10.png
+    - images/create_acount/flag11.png
+    - images/create_acount/flag12.png
+    - images/create_acount/flag13.png
+    - images/create_acount/Success Account Ilustration.png
+    - images/create_acount/google.png
+    - images/create_acount/Facebook.png
+    - images/create_acount/Email Ilustration.png
+    - images/create_acount/Password Succesfully Ilustration.png
+    - images/home_screen/Notification.png
+    - images/home_screen/Zoom Job.png
+    - images/home_screen/Twitter Logo.png
+    - images/home_screen/archive-minus.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:

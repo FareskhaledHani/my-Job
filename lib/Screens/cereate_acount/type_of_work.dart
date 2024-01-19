@@ -1,5 +1,6 @@
 import 'package:finalproject/Screens/cereate_acount/constant.dart';
 import 'package:finalproject/Screens/cereate_acount/controller.dart';
+import 'package:finalproject/Screens/cereate_acount/preferd_location.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -38,18 +39,20 @@ class TybeOfWork extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
 
-                  InkWell(
-                    onTap: MyControooller.changeColorContainer(),
-                    child: hope_work_box(Color1:MyControooller.containerColor,
-                      // topp2: 36.h, topp1: 36.h,
-                      // photo2: 'images/create_acount/Ilustrator Category.png',
-                      textPhoto1: 'UI/UX Designer',
-                      // textPhoto2: 'Ilustrator Designer',
-                      photo1: 'images/create_acount/bezier.png',
-                      // Color4:MyControooller.containerColorBorder ,
-                      // Color2: MyControooller.containerColor,
-                      Color3: MyControooller.containerColorBorder, topp1: 20.h,),
-                  ),
+              
+                      InkWell(
+                        onTap: MyControooller.changeColorContainer,
+                        child: hope_work_box(Color1:MyControooller.containerColor,
+                    // topp2: 36.h, topp1: 36.h,
+                    // photo2: 'images/create_acount/Ilustrator Category.png',
+                    textPhoto1: 'UI/UX Designer',
+                    // textPhoto2: 'Ilustrator Designer',
+                    photo1: 'images/create_acount/bezier.png',
+                    // Color4:MyControooller.containerColorBorder ,
+                    // Color2: MyControooller.containerColor,
+                    Color3: MyControooller.containerColorBorder, topp1: 20.h,),
+                      ),
+
                   hope_work_box(Color1:MyControooller.containerColor,
                     // topp2: 36.h, topp1: 36.h,
                     // photo2: 'images/create_acount/Ilustrator Category.png',
@@ -122,8 +125,10 @@ class TybeOfWork extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(top: 60.0).h,
                 child: ElevatedButton(
-                  onPressed: () {},
-                  child: Text('Create account'),
+                  onPressed: () {
+                    Get.put(PreferdLocation());
+                  },
+                  child: Text(' Next'),
                   style: ElevatedButton.styleFrom(
                     fixedSize: Size(MediaQuery.of(context).size.width,50.w),
                     shape: RoundedRectangleBorder(
