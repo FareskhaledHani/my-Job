@@ -8,6 +8,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../generated/l10n.dart';
+
 class PreferdLocation extends StatelessWidget {
   final List<String> countryNames = [
     'UnitedStates',
@@ -53,7 +55,7 @@ class PreferdLocation extends StatelessWidget {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: EdgeInsets
+            padding: const EdgeInsets
                 .only(top: 20, right: 24, left: 24)
                 .h
                 .w
@@ -61,17 +63,17 @@ class PreferdLocation extends StatelessWidget {
             child: Container(
               child: Column(
                 children: [
-                  Text('Where are you prefefred Location?', style: TextStyle(
+                  Text(S.of(context).WhereAreYouPreferdLocation, style: const TextStyle(
                       fontSize: 24, fontWeight: FontWeight.w500
                   ),),
 
                   Padding(
                     padding: const EdgeInsets.only(top: 12, bottom: 32).h.h,
                     child: Text(
-                      'Let us know, where is the work location you want at this time, so we can adjust it.',
+                      S.of(context).LetUsKnowWhereIsTheWorkLocationYouWantAtThisTimSoWeCanAdjustIt,
                       style: TextStyle(fontWeight: FontWeight.w400,
                           fontSize: 16.sp,
-                          color: Color(0xFF737379)),),
+                          color: const Color(0xFF737379)),),
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -80,7 +82,7 @@ class PreferdLocation extends StatelessWidget {
                           ElevatedButton(onPressed: () {
                             MyControoooller.changeColorRemote();
                           },
-                            child: Text('Work Form Office'),
+                            child: Text(S.of(context).WorkFormOffice),
                             style: ElevatedButton.styleFrom(
                               //fixedSize: Size(MediaQuery.of(context).size.width, 50.w),
 
@@ -95,7 +97,7 @@ class PreferdLocation extends StatelessWidget {
                       Obx(() =>
                           ElevatedButton(onPressed: () {
                             MyControoooller.changeColorOffice();
-                          }, child: Text('Remote Work'), style: ElevatedButton
+                          }, child: Text(S.of(context).RemoteWork), style: ElevatedButton
                               .styleFrom(
                             //fixedSize: Size(MediaQuery.of(context).size.width, 50.w),
 
@@ -110,7 +112,7 @@ class PreferdLocation extends StatelessWidget {
                   Padding(
                     padding: const EdgeInsets.only(top: 15.0, bottom: 15).h.h,
                     child: Text(
-                      'Select the country you want for your job                        ',
+                      S.of(context).SelectTheCountryYouWantForYourJob,
                       style: TextStyle(fontSize: 16.sp,
                           fontWeight: FontWeight.w400,
                           color: Color(0XFF737379)),),
@@ -127,7 +129,7 @@ class PreferdLocation extends StatelessWidget {
                         return _buildCountryContainer(index);
                       },
                     ),),
-                  nextButton(buttonText: 'Next', onpressed: (){
+                  nextButton(buttonText: S.of(context).Next, onpressed: (){
                   Get.to(AcountSuccess());
                   })
                 ],

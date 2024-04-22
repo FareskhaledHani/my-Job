@@ -8,22 +8,22 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 class MyControoller extends GetxController {
-  var obscureText = true.obs;
-  FirebaseAuth _auth = FirebaseAuth.instance;
-  Future<void> createAccount(String email, String password) async {
-    try {
-      UserCredential userCredential =
-      await _auth.createUserWithEmailAndPassword(
-        email: email,
-        password: password,
-      );
-      // Handle success scenario or navigate to the next screen
-      print('Account created successfully: ${userCredential.user?.uid}');
-    } catch (e) {
-      // Handle error scenario or display an error message
-      print('Account creation failed: $e');
-    }
-  }
+ var obscureText = true.obs;
+  // FirebaseAuth _auth = FirebaseAuth.instance;
+  // Future<void> createAccount(String email, String password) async {
+  //   try {
+  //     UserCredential userCredential =
+  //     await _auth.createUserWithEmailAndPassword(
+  //       email: email,
+  //       password: password,
+  //     );
+  //     // Handle success scenario or navigate to the next screen
+  //     print('Account created successfully: ${userCredential.user?.uid}');
+  //   } catch (e) {
+  //     // Handle error scenario or display an error message
+  //     print('Account creation failed: $e');
+  //   }
+  // }
   void toggleObscureText() {
     obscureText.toggle();
   }
@@ -32,33 +32,33 @@ class MyControoller extends GetxController {
   changeButtonColor() {
     buttonColor.value = Colors.blue;
   }
-  Future<UserCredential> signInWithGoogle() async {
-    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-    print(googleUser.toString()+ '<------');
-    final GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
-
-
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-
-    Get.put(TybeOfWork());
-
-    return await FirebaseAuth.instance.signInWithCredential(credential);
-  }
-  Future<void> signInWithFacebook() async {
-    final LoginResult result = await FacebookAuth.instance.login();
-
-    if (result.status == LoginStatus.success) {
-      final AccessToken accessToken = result.accessToken!;
-      // Access the user's Facebook access token and user ID
-      print('Access Token: ${accessToken.token}');
-      print('User ID: ${accessToken.userId}');
-    } else {
-      print('Facebook sign-in failed.');
-    }
-  }
+  // Future<UserCredential> signInWithGoogle() async {
+  //   final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+  //   print(googleUser.toString()+ '<------');
+  //   final GoogleSignInAuthentication googleAuth = await googleUser!.authentication;
+  //
+  //
+  //   final credential = GoogleAuthProvider.credential(
+  //     accessToken: googleAuth.accessToken,
+  //     idToken: googleAuth.idToken,
+  //   );
+  //
+  //   Get.put(TybeOfWork());
+  //
+  //   return await FirebaseAuth.instance.signInWithCredential(credential);
+  // }
+  // Future<void> signInWithFacebook() async {
+  //   final LoginResult result = await FacebookAuth.instance.login();
+  //
+  //   if (result.status == LoginStatus.success) {
+  //     final AccessToken accessToken = result.accessToken!;
+  //     // Access the user's Facebook access token and user ID
+  //     print('Access Token: ${accessToken.token}');
+  //     print('User ID: ${accessToken.userId}');
+  //   } else {
+  //     print('Facebook sign-in failed.');
+  //   }
+  // }
 
   Rx<Color> containerColor = (Color(0xFFFAFAFA)).obs;
   Rx<Color> containerColorBorder = (Color(0xFFD1D5DB)).obs;

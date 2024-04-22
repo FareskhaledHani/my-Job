@@ -1,43 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get.dart';
 
-class CustumBubbleCheck extends StatelessWidget {
-   CustumBubbleCheck({
-    Key? key,required this.colorBoxBorder, required this.colorBackGround, required this.value,required this.TextTitle,required this.colorText
-  }) : super(key: key);
-   Color colorBoxBorder;
-  Color colorBackGround;
-  var value;
-  String TextTitle;
-  Color colorText;
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          height: 50.h,
-          width: 50.w,
-          decoration:  BoxDecoration(
-            shape: BoxShape.circle,
-            color: colorBackGround,
-            border: Border.all(width: 1,color:colorBoxBorder,),
-          ),
-          child:Center(
-            child: Container(
-              height: 60.h,
-              width: 60.w,
-              child:value,
-            ),
-          ),
-        ),
-        Text(TextTitle,style: TextStyle(color: colorText,fontSize: 12.sp,fontWeight: FontWeight.w400),),
-      ],
-    );
-  }
+
+
+class Components{
+ List<String>? lables=['contain', 'list', 'sahlab'];
+  int? counter=0;
 }
-
 
 
 class DotetContainer extends StatelessWidget {

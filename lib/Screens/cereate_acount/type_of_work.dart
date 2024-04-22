@@ -7,6 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../generated/l10n.dart';
+
 class TybeOfWork extends StatelessWidget {
    TybeOfWork({Key? key}) : super(key: key);
   final MyControoller MyControooller = Get.put(MyControoller());
@@ -20,16 +22,16 @@ class TybeOfWork extends StatelessWidget {
 
           child: Column(
             children: [
-              Text('What type of work are you interested in?',
-                  style: TextStyle(
+              Text(S.of(context).WhatTypeOfWorkAreYouInterestedIn,
+                  style: const TextStyle(
                       fontWeight: FontWeight.w500,
                       fontSize: 24,
                       color: Color(0xFF111827))),
               Padding(
                 padding: const EdgeInsets.only(top: 12).h,
                 child: Text(
-                  'Tell us what you’re interested in so we can\   customise the app for your needs.',
-                  style: TextStyle(
+                  S.of(context).TellUsWhatYouAreInterestedInSoWeCanCustomiseTheAppForYourNeeds,
+                  style: const TextStyle(
                       fontWeight: FontWeight.w400,
                       fontSize: 16,
                       color: Color(0XFF737379)),
@@ -128,12 +130,12 @@ class TybeOfWork extends StatelessWidget {
                   onPressed: () {
                     Get.put(PreferdLocation());
                   },
-                  child: Text(' Next'),
+                  child: Text(S.of(context).Next),
                   style: ElevatedButton.styleFrom(
                     fixedSize: Size(MediaQuery.of(context).size.width,50.w),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20)),
-                    primary: Color(0xFF3366FF),
+                    primary: const Color(0xFF3366FF),
                   ),
                 ),
               ),

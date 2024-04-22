@@ -4,81 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
-final List<Widget> carusal2 = [Column(children: [
-  Container(
-    decoration: BoxDecoration(
-      borderRadius: BorderRadius.circular(20),
-      color: Color(0xFF091A7A)
-    ),
-    height:199.5.h,
-    width: 370.w,
 
-    child: Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Image.asset('images/home_screen/Twitter Logo.png'),
-                SizedBox(width: 15.w),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Senior UI Designer',style: TextStyle(fontWeight:FontWeight.w500 ,fontSize:18 ),),
-                    SizedBox(height: 5.h),
-                    Text('Senior UI Designer',style: TextStyle(fontWeight:FontWeight.w500 ,fontSize:10 ),),
-                  ],
-                ),
-              ],
-            ),
-            Icon(FontAwesomeIcons.bookmark)
-          ],),
-        SizedBox(height: 20.h,),
-        Row(
-         mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Container(
-              child: Center(child: Text('fulltime')),
-              width:100.w,
-              height:35.h,
-              decoration: BoxDecoration(
-                  color: Color(0XFFFFFFF),borderRadius: BorderRadius.circular(20)
-              ),),
-            SizedBox(width: 5.w),
-            Container(
-              child: Center(child: Text('Remote')),
-              width:100.w,
-              height:35.h,
-              decoration: BoxDecoration(
-                  color: Color(0XFFFFFFF),borderRadius: BorderRadius.circular(20)
-              ),),SizedBox(width: 5.w), Container(
-              child: Center(child: Text('Senior')),
-              width:100.w,
-              height:35.h,
-              decoration: BoxDecoration(
-                  color: Color(0XFFFFFFF),borderRadius: BorderRadius.circular(20)
-              ),),
-          ],),
-        SizedBox(height: 20.h,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text("12K-15K/Month",style: TextStyle(fontSize:12 ,fontWeight: FontWeight.w500,color: Colors.white),),ElevatedButton(onPressed: (){}, child: Text('ApplyNow'),style: ButtonStyle(
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18.0),
-
-                    )
-                )
-            ),)
-          ],),
-      ],),
-    )
-  ),
-])];
 class IconBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -116,5 +42,25 @@ class IconBar extends StatelessWidget {
         ),
       ],
     );
+  }
+}
+// icon circle button ...........
+class IconCircle extends StatelessWidget {
+  final  IconData icon;
+  final VoidCallback ontap;
+  const IconCircle({
+    Key? key, required this.icon,required this.ontap
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 55.w,
+      height:43.h,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(40),
+        border:Border.all(width: 1,color: Colors.grey),
+      ),
+      child: Center(child: IconButton(icon:Icon(icon,size: 20) ,onPressed: ontap,)),);
   }
 }

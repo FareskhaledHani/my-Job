@@ -1,12 +1,10 @@
 import 'package:finalproject/Screens/reset_account/controller.dart';
 import 'package:finalproject/Screens/reset_account/password_changed_succesfull.dart';
 import 'package:finalproject/Screens/slider_screen/extract_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import '../../generated/l10n.dart';
 
 class CreateNwePasswordScreen extends StatelessWidget {
 
@@ -20,17 +18,17 @@ class CreateNwePasswordScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              AppLogoAndBackButton(),
+              const AppLogoAndBackButton(),
               SizedBox(height: 20.h,),
               Row(
                 children: [
-                  Text('Create new password',style: TextStyle(
+                  Text(S.of(context).CreateNewPassword,style: const TextStyle(
                     fontSize:28 ,fontWeight: FontWeight.w500,color: Color(0xFF111827)
                   ),),
                 ],
               ),
               SizedBox(height: 10.h,),
-              Text('Set your new password so you can login and acces Jobsque',style: TextStyle(
+              Text(S.of(context).SetYourNewPasswordSoYouCanLoginAndAccesJobsque,style: const TextStyle(
                 fontWeight:FontWeight.w400 ,fontSize:16 ,color: Color(0xFF6B7280)
               ),),
               SizedBox(height: 30.h,),
@@ -39,7 +37,7 @@ class CreateNwePasswordScreen extends StatelessWidget {
                 decoration: InputDecoration(
                   hoverColor: Colors.green,
                   prefixIconColor: Colors.deepPurple,
-                  prefixIcon: Icon(Icons.lock_open_outlined
+                  prefixIcon: const Icon(Icons.lock_open_outlined
                   ),
                    suffixIconColor: Colors.red,
                   suffixIcon: GestureDetector(
@@ -60,7 +58,7 @@ class CreateNwePasswordScreen extends StatelessWidget {
               SizedBox(height: 10.h),
               Row(
                 children: [
-                  Text('Password must be at least 8 characters',style: TextStyle(color: Color(0xFF9CA3AF)),),
+                  Text(S.of(context).PasswordMustBeAtLeast8Characters,style: const TextStyle(color: Color(0xFF9CA3AF)),),
                 ],
               ),
               SizedBox(height: 15.h,),
@@ -69,7 +67,7 @@ class CreateNwePasswordScreen extends StatelessWidget {
                 decoration: InputDecoration(
                     hoverColor: Colors.green,
                     prefixIconColor: Colors.deepPurple,
-                    prefixIcon: Icon(Icons.lock_open_outlined
+                    prefixIcon: const Icon(Icons.lock_open_outlined
                     ),
                     suffixIconColor: Colors.red,
                     suffixIcon: GestureDetector(
@@ -89,11 +87,11 @@ class CreateNwePasswordScreen extends StatelessWidget {
               ),),
               SizedBox(height: 10.h),
               Row(children: [
-                Text('Both password must match',style: TextStyle(color: Color(0xFF9CA3AF)),)
+                Text(S.of(context).BothPasswordMustMatch,style: TextStyle(color: const Color(0xFF9CA3AF)),)
               ],
               ),
               SizedBox(height: 300.h),
-              nextButton(buttonText: 'Rest Password', onpressed: (){
+              nextButton(buttonText: S.of(context).RestPassword, onpressed: (){
                 Get.to(()=>PasswordChangedSuccesfull());
               }),
 

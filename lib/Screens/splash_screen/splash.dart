@@ -3,6 +3,10 @@ import 'package:finalproject/Screens/slider_screen/slider_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import '../../core/cash_helper.dart';
+import '../bottom_nav_bar/views/bottom_nav_bar_view.dart';
+import '../login_screen/login_screen.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -19,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
         //splash screen won't show on back button press
         //navigation to Home page.
           builder: (context){
-            return HomePage();
+            return  CacheHelper.getToken().isNotEmpty? const BottomNavBar():  LoginScreen();
           }));
     });
 

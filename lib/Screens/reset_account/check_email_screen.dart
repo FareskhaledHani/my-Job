@@ -1,10 +1,10 @@
 import 'package:finalproject/Screens/reset_account/create_new_password_screen.dart';
 import 'package:finalproject/Screens/slider_screen/extract_widget.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+
+import '../../generated/l10n.dart';
 
 class CheckEmailScreen extends StatelessWidget {
   const CheckEmailScreen({Key? key}) : super(key: key);
@@ -24,14 +24,14 @@ class CheckEmailScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(height: 15.h,),
-                    Text('Check your Email',style: TextStyle(
+                    Text(S.of(context).CheckYourEmail,style: const TextStyle(
                       fontWeight:FontWeight.w500 ,fontSize: 24,
                       color: Color(0xFF111827)
                     ),)
                   ],
                 ),
                 SizedBox(height: 15.h),
-                Text('Wehave sent a reset password to your email address',style: TextStyle(
+                Text(S.of(context).WeHaveSentAResetPasswordToYourEmailAddress,style: const TextStyle(
                     fontWeight:FontWeight.w400 ,fontSize: 16,
                     color: Color(0xFF6B7280)),
                 textAlign: TextAlign.center,
@@ -39,7 +39,7 @@ class CheckEmailScreen extends StatelessWidget {
                 SizedBox(height: 250.h),
                 Row(
                   children: [
-                    nextButton(buttonText: 'Open email app', onpressed: (){
+                    nextButton(buttonText:S.of(context).OpenEmailApp, onpressed: (){
                       Get.to(()=>CreateNwePasswordScreen());
                     }),
                   ],

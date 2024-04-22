@@ -5,55 +5,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:ionicons/ionicons.dart';
 
 class nextButton extends StatelessWidget {
    nextButton({
     required this.buttonText,required this.onpressed
   });
-  String  buttonText;
+  var  buttonText;
   VoidCallback onpressed;
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 48.h,
-      //width: double.infinity,
-      width: 380.w,
-      child: ElevatedButton(
-        onPressed: onpressed,
-        child: Text(buttonText),
-        style: ElevatedButton.styleFrom(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30)),
-            primary: Color(0XFF3366FF)),
+    return Center(
+      child: SizedBox(
+        height: 48.h,
+        //width: double.infinity,
+        width: 380.w,
+        child: ElevatedButton(
+          onPressed: onpressed,
+          child: buttonText,
+          style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30)),
+              primary: Color(0XFF3366FF)),
+        ),
       ),
     );
   }
 }
 
-class AppLogo extends StatelessWidget {
-  const AppLogo({
-    Key? key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(left: 20).w,
-          child: Image.asset('images/slider/J BSQUE .jpg'),
-        ),
-        TextButton(
-            onPressed: () {},
-            child: Text(
-              'Skip',
-              style: TextStyle(color: Colors.blueGrey),
-            ))
-      ],
-    );
-  }
-}
 
 class RichTextExtractWidget extends StatelessWidget {
   const RichTextExtractWidget({
@@ -184,57 +164,8 @@ class AppLogoAndBackButton extends StatelessWidget {
     );
   }
 }
-class SighnWithGoogleAndFaceBook extends StatelessWidget {
-  const SighnWithGoogleAndFaceBook({
-    Key? key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Row(children: [
-      // GoogleSignInButton(onPressed: (){},),
-      Expanded(
-        flex: 1,
-        child: Padding(
-            padding: const EdgeInsets.only(right: 10.0),
-            child: ButtonSinWith(onPressed: (){}, image: 'images/create_acount/google.png', TextIcon: 'Google',)
-        ),
-      ),
 
-      Expanded(
-        flex: 1,
-        child: Padding(
-          padding: const EdgeInsets.only(right: 10.0),
-          child:  ButtonSinWith(TextIcon: 'FaceBook', image: 'images/create_acount/Facebook.png', onPressed: (){},),
-        ),
-      ),
-    ],);
-  }
-}
-class SearchBox extends StatelessWidget {
-  SearchBox({ required this.onpressed});
-  VoidCallback onpressed;
-  @override
-  Widget build(BuildContext context) {
-    return
-      TextField(
-        onTap:onpressed,
-
-      decoration: InputDecoration(
-        labelText: 'Search...',
-        hintText: 'Enter your search query',
-        prefixIcon: Icon(Icons.search),
-        border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(40.0),
-        ),
-      ),
-      onChanged: (text) {
-        // Handle text changes (e.g., filtering results) here
-        print('Search query: $text');
-      },
-    );
-  }
-}
 
 class SelectIconJob extends StatelessWidget {
   const SelectIconJob({
@@ -256,46 +187,8 @@ class SelectIconJob extends StatelessWidget {
     );
   }
 }
-class BoxInSetFilter extends StatelessWidget {
-  BoxInSetFilter({Key? key,
-     required this.onpressed,
-  required this.iconSet,
 
-  }) : super(key: key);
-  VoidCallback onpressed;
-  Icon iconSet;
-  // Icon iconDown;
-  @override
-  Widget build(BuildContext context) {
-    return TextField(
-        onChanged: (onpressed){},
-        decoration: InputDecoration(
-          prefixIcon:iconSet,
-          // suffixIcon: iconDown,
-          border:OutlineInputBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(10),),),)
-    );
-  }
-}
-class JobTybBox extends StatelessWidget {
-  JobTybBox({Key? key,required this.name,this.borderbox, this.height, });
-  String name;
-  var borderbox;
-  var height;
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text(name)),
-      width: 88.w,
-      height: height,
-      decoration: BoxDecoration(
-          border: borderbox,
-          color: Color(0XFFD6E4FF), borderRadius: BorderRadius.circular(20)),
-    );
-  }
-}
 class JobTybBoxFilter extends StatelessWidget {
    JobTybBoxFilter({ required this.name,required this.colorBox,required this.colorBoxBorder }) ;
   final String name;
@@ -317,54 +210,6 @@ final  Rx <Color> colorBox;
 }
 
 
-class AppBarThreeWidget extends StatelessWidget {
-  AppBarThreeWidget({
-    Key? key,required this.onpressed,required this.Tilte,
-  }) : super(key: key);
-  VoidCallback onpressed;
-  String Tilte;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        IconButton(onPressed:onpressed, icon:Icon(Icons.arrow_back_rounded)),
-        Text('$Tilte',style: TextStyle(fontSize:25.sp ,fontWeight: FontWeight.w500),),
-        IconButton(onPressed: (){}, icon: Icon(Icons.save))
-      ],);
-  }
-}
 
 
-class DescriptionDetailsJob extends StatelessWidget {
-  const DescriptionDetailsJob({
-    Key? key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      'Twitter • Jakarta, Indonesia',
-      style: TextStyle(
-          fontWeight: FontWeight.w500,
-          fontSize: 10),
-    );
-  }
-}
-
-class TitleJobDetails extends StatelessWidget {
-  const TitleJobDetails({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Text(
-      'Senior UI Designer',
-      style: TextStyle(
-          fontWeight: FontWeight.w500,
-          fontSize: 18),
-    );
-  }
-}
