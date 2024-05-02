@@ -19,7 +19,9 @@ class SugesstionJobModel{
    final String jobTimeType;
    final String compName;
    final String salary;
-   SugesstionJobModel( {required this.image,required this.name,required this.jobTimeType,required this.compName,required this.salary});
+   final String location;
+   final int id;
+   SugesstionJobModel({required this.location,required this.id, required this.image,required this.name,required this.jobTimeType,required this.compName,required this.salary});
   factory SugesstionJobModel.fromJson(Map<String,dynamic> json){
 
     return SugesstionJobModel(
@@ -28,6 +30,8 @@ class SugesstionJobModel{
       jobTimeType: json['job_time_type']??'',
       compName: json['comp_name']??'',
       salary: json['salary']??'',
+      location: json['location']??'',
+      id: json['id']??'',
     );
   }
 }

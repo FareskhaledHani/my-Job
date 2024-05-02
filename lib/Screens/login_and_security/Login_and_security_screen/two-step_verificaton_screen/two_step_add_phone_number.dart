@@ -6,10 +6,12 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../../../components/custom_main_button.dart';
 import '../../../../components/custum_password_text_field.dart';
 import '../../../../components/custum_phone_field.dart';
 import '../../../../components/custum_title_text.dart';
 import '../../../../constant/constants.dart';
+import '../../../../generated/l10n.dart';
 import '../../../slider_screen/extract_widget.dart';
 import 'cubits/put_password_cubit.dart';
 
@@ -41,7 +43,7 @@ class StepVerficationPhoneNumber extends StatelessWidget {
               CustumSubTitle_400_12_grey(
                   subTitle: 'We will send a verification code to this number'),
               SizedBox(height: 10.h),
-              CustumPhoneField(onchange: (phone) {},),
+              CustomPhoneField(onchange: (phone) {},),
               SizedBox(height: 20,),
               CustumTitle_500_14_black(title: 'Enter your password'),
               SizedBox(height: 10,),
@@ -58,15 +60,15 @@ class StepVerficationPhoneNumber extends StatelessWidget {
                           .read<PasswordVisibilityCubit>()
                           .toggleVisibility();
                     },
-                  ), obscureText: state == PasswordVisibility.hidden, controller: null, hintText: '',);
+                  ), obscureText: state == PasswordVisibility.hidden,  hintText: '', onChange: (String ) {  }, validator: (String ) {  },);
                 },
               ),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomCenter,
-                  child: nextButton(
-                    buttonText: ' Send Code',
-                    onpressed: () { Get.to(()=>OtpFormScreen());},
+                  child: MainButton(
+                    buttonText: Text(S.of(context).SendCode),
+                    onPressed: () { Get.to(()=>const OtpFormScreen());},
                   ),
                 ),
               ),

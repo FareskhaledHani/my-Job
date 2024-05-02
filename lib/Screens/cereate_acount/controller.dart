@@ -1,5 +1,5 @@
 import 'dart:ui';
-import 'package:finalproject/Screens/cereate_acount/type_of_work.dart';
+import 'package:finalproject/Screens/hope_work_screen/screen/type_of_work.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';

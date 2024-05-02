@@ -4,6 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../../components/custum_title_text.dart';
 import '../../../../constant/constants.dart';
+import '../../components/custom_main_button.dart';
 import '../../components/custum_container_buble.dart';
 import '../../components/custum_container_logo__apply_job.dart';
 import '../../components/custum_loaded_pdf.dart';
@@ -75,15 +76,15 @@ class UpLoadAgainAppliedJob extends StatelessWidget {
               SizedBox(
                 height: 10.h,
               ),
-              CustumUpLoadFileContainer(
-                ontap: () {},
+              CustomUpLoadFileContainer(
+                ontap: () {}, onPressedIcon: () {  },
               ),
               SizedBox(
                 height: 70.h,
               ),
-              nextButton(
-                  buttonText: S.of(context).Submitted,
-                  onpressed: () {
+              MainButton(
+                  buttonText: Text(S.of(context).Next),
+                  onPressed: () {
 
                   }),
 

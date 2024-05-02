@@ -1,6 +1,7 @@
-
+import 'package:finalproject/Screens/job_details/models/card_employees_model.dart';
+import 'package:ionicons/ionicons.dart';
 import 'package:finalproject/Screens/home_screen/home_screen/models/suggestion_job.dart';
-import 'package:finalproject/Screens/home_screen/home_screen/services.dart';
+import 'package:finalproject/Screens/home_screen/home_screen/service/services.dart';
 import 'package:finalproject/Screens/home_screen/search_screen/viwes/search_screan.dart';
 import 'package:finalproject/models/catogry_model.dart';
 import 'package:flutter/cupertino.dart';
@@ -12,33 +13,45 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import '../../../components/custum_job_type_box.dart';
 import '../../../components/custum_search_box.dart';
+import '../../../core/cash_helper.dart';
 import '../../../generated/l10n.dart';
 import '../../job_details/screen/job_details_screan.dart';
+import '../../job_details/services/job_details_service.dart';
+import '../component/custom_container_search_button.dart';
 import '../component/custum_widget.dart';
-import '../notification_screen/notification_screen/notification_screen.dart';
+
 import '../component/custom_carusal_slider_container.dart';
+import '../notification_screen/notification_screen/notification_screen.dart';
+import '../saved_screen/cubits_fav/post_favorite_cubit/post_favorite_cubit.dart';
+
 SugesstionJobModel? sugesstionJobModel;
+
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
+
 //
 class _HomeScreenState extends State<HomeScreen> {
+  ApiServices apiServices = ApiServices();
+  PostFavoriteService postFavoriteService =PostFavoriteService();
+  JobDetailsServices jobDetailsServices =JobDetailsServices();
+  JobDetailsModel ?jobDetailsModel ;
 
-  ApiServices apiServices=ApiServices();
   // List<SugesstionJobModel>suggestionJob=[];
   //  dynamic sug;
 
-   @override
-   void initState()  {
-     Future.delayed(const Duration(seconds: 1), () async{
-       sugesstionJobModel=await ApiServices().getSuggestionJob();
-     });
-     super.initState();
+  @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 1), () async {
+      sugesstionJobModel = await ApiServices().getSuggestionJob();
+    });
 
-   }
+    super.initState();
+  }
+
   // late SugesstionJobModel suggesstionJobModel ;
   @override
   Widget build(BuildContext context) {
@@ -48,8 +61,8 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.all(20.0).r,
           child: Column(
             children: [
-              Container(
-                height: 62.h,
+              SizedBox(
+                height: 66.h,
                 width: 400.w,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -63,30 +76,32 @@ class _HomeScreenState extends State<HomeScreen> {
                               fontSize: 24, fontWeight: FontWeight.w500),
                         ),
                         //  Image.asset('images/home_screen/Notification.png')
-                        IconNotification(
-                          count: 12,
+                        GestureDetector(
                           onTap: () {
-                            Get.to(() => NotificationScreen());
+                            Get.to(() => const NotificationScreen());
                           },
-                          image: 'images/home_screen/notification.png',
+                          child: const IconNotification(
+                            count: 1,
+                            image: 'images/home_screen/notification.png',
+                          ),
                         ),
                       ],
                     ),
                     Text(
                       S.of(context).CreateAbetterFutureForYourselfHere,
-                      style: const TextStyle(
-                          fontSize: 14, fontWeight: FontWeight.w500),
+                      style:  TextStyle(
+                          fontSize: 16.sp, fontWeight: FontWeight.w500),
                     ),
                   ],
                 ),
               ),
-              const SizedBox(height: 20),
-              SearchBox(
-                onpressed: () {
-                  Get.to(() => SearchScrean());
-                },
-                titleSearch: S.of(context).EnterYourSearchQuery,
-              ),
+               SizedBox(height: 10.h),
+              GestureDetector(
+                  onTap: (){
+                    Get.to(() => SearchScrean());
+                  },
+                  child: const CustomContainerSearchButton()),
+              // titleSearch: S.of(context).EnterYourSearchQuery,
               SizedBox(
                 height: 5.h,
               ),
@@ -98,8 +113,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 leading: Image.asset('images/home_screen/Twitter Logo.png'),
-                title: Text('Twitter'),
-                subtitle: Text(
+                title: const Text('Twitter'),
+                subtitle: const Text(
                   'Waiting to be selected by the twitter team',
                   style: TextStyle(
                       fontSize: 12,
@@ -109,19 +124,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 trailing: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     minimumSize: Size(1.w, 35.h),
-                    primary: Color(0xffADC8ff),
+                    primary: const Color(0xffADC8ff),
                     elevation: 0,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(30)),
                   ),
-                  onPressed: () async{
-                    sugesstionJobModel=await ApiServices().getSuggestionJob();
-
-                    // SugesstionJobModel? sugesstionJobModel=   await ApiServices().getSuggestionJob();
-                  },
+                  onPressed: (){},
+                  // onPressed: () async {
+                  //   sugesstionJobModel = await ApiServices().getSuggestionJob();
+                  //
+                  //   // SugesstionJobModel? sugesstionJobModel=   await ApiServices().getSuggestionJob();
+                  // },
                   child: Text(
-                    'Submitted',
-                    style: TextStyle(color: Color(0xff1939B7)),
+                    S.of(context).Submitted,
+                    style:const TextStyle(color: Color(0xff1939B7)),
                   ),
                 ),
               ),
@@ -130,27 +146,24 @@ class _HomeScreenState extends State<HomeScreen> {
                 children: [
                   Text(
                     S.of(context).SuggestedJob,
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                    style: const TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                   ),
                   TextButton(
                       onPressed: () {}, child: Text(S.of(context).ViewAll))
                 ],
               ),
 
-                   CustomCarouselSlider(apiServices: apiServices,),
+              CustomCarouselSlider(
+                apiServices: apiServices, postFavoriteService: postFavoriteService, jobDetailsServices: jobDetailsServices,
+              ),
               //custum_carousal_slider(buttonCarouselController: buttonCarouselController),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  InkWell(
-                    onTap: () {
-                      Get.to(() => JobDetailsScreanState());
-                    },
-                    child: Text(
-                      S.of(context).RecentJob,
-                      style:
-                          TextStyle(fontWeight: FontWeight.w500, fontSize: 18),
-                    ),
+                  Text(
+                    S.of(context).RecentJob,
+                    style:
+                        TextStyle(fontWeight: FontWeight.w500, fontSize: 18.sp),
                   ),
                   TextButton(
                       onPressed: () {}, child: Text(S.of(context).ViewAll)),
@@ -177,8 +190,6 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
 
 List<CatogryModel> Categories = [
   CatogryModel(

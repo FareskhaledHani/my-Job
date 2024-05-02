@@ -66,7 +66,7 @@ class ColorChangeContainerWidget extends StatelessWidget {
                     currentColor == ContainerColor.Personal
                         ? Colors.indigo
                         : Color(0xffD1D5DB), onTap: () {
-                        Get.to(()=>EditProfile());
+                        // Get.to(()=>EditProfile());
                         ratioComplet=1;
                        BlocProvider.of<ContainerColorCubit>(context)
                        .changeColor(ContainerColor.Personal);

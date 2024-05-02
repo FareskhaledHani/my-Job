@@ -7,8 +7,10 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
+import '../../../../components/custom_main_button.dart';
 import '../../../../components/custum_title_text.dart';
 import '../../../../constant/constants.dart';
+import '../../../../generated/l10n.dart';
 import '../../../slider_screen/extract_widget.dart';
 import 'component/custum_widget_row_verfication.dart';
 
@@ -82,9 +84,9 @@ class _TwoStepVerificationState extends State<TwoStepVerification> {
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,
-                child: nextButton(
-                  buttonText: 'Next',
-                  onpressed: () {Get.to(()=>AddingVerifivationMethod()); },
+                child: MainButton(
+                  buttonText: Text(S.of(context).Save),
+                  onPressed: () {Get.to(()=>AddingVerifivationMethod()); },
                 ),
               ),
             ),

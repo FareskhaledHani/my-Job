@@ -10,9 +10,8 @@ part 'auth_state.dart';
 class AuthCubit extends Cubit<AuthState> {
   AuthCubit() : super(AuthInitial());
   final String baseUrl = "https://project2.amit-learning.com/api";
- // final ServicesAuth _authService = ServicesAuth();
   Dio dio=Dio();
-  Future <void>Login(String email,String password)async{
+  Future <void>login(String email,String password)async{
     try{
       emit(AuthLoading());
       final logInModel=LogInModel(email: email, password: password);

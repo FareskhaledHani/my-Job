@@ -196,5 +196,20 @@
   "NowHowShowDrink": "Agora quem deve beber o remédio? Donec feugiat massa mi, at hendrerit mauris rutrum no O cliente é muito importante, ele será seguido pelo cliente.",
   "NowHowShowDrinkInFact": "Agora quem deve beber o remédio? Donec feugiat massa mi, at hendrerit mauris rutrum no O cliente é muito importante, ele será seguido pelo cliente. Na verdade, mesmo que seja propaganda, é importante ter um funcionário de desenho animado. Agora quem deve beber o remédio? Donec feugiat massa mi, at hendrerit mauris rutrum no",
   "Month": "mês",
-  "ApplyNow": "Aplicar agora"
+  "ApplyNow": "Aplicar agora",
+  "ErrorIsHappened": "Ocorreu um erro. Por favor, tente novamente ou verifique sua conexão de rede",
+  "JobDescription": "Descrição do trabalho",
+  "ContactsUs": "Entre em contato conosco",
+  "SkillRequired": "Habilidade necessária",
+  "WorkDuring": "Trabalhar durante",
+  "AboutCompany": "Sobre a empresa",
+  "SavedJobIsDeleted": "O emprego salvo foi excluído",
+  "PleaseCheckYourNetworkAndTryAgain": "Por favor, verifique sua rede e tente novamente",
+  "JobApplicationUpdate": "Atualização do pedido de emprego",
+  "JobApplicationReminders": "Lembretes de candidatura a emprego",
+  "JobsYouMayBeInterestedIn": "Empregos que você pode estar interessado",
+  "JobSeekerUpdates": "Atualizações do buscador de emprego",
+  "ShowProfile": "Mostrar perfil",
+  "AllMessage": "Todas as mensagens",
+  "MessageNudges": "Lembretes de mensagem"
 }

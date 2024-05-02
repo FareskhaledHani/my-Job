@@ -6,9 +6,11 @@ import 'package:flutter_switch/flutter_switch.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../../../components/custom_main_button.dart';
 import '../../../../components/custum_subtitle_text.dart';
 import '../../../../components/custum_title_text.dart';
 import '../../../../constant/constants.dart';
+import '../../../../generated/l10n.dart';
 import '../../../slider_screen/extract_widget.dart';
 
 class AddingVerifivationMethod extends StatefulWidget {
@@ -106,9 +108,9 @@ class _AddingVerifivationMethodState extends State<AddingVerifivationMethod> {
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,
-                child: nextButton(
-                  buttonText: 'Next',
-                  onpressed: () { Get.to(()=>StepVerficationPhoneNumber());},
+                child: MainButton(
+                  buttonText:Text(S.of(context).Save),
+                  onPressed: () { Get.to(()=>StepVerficationPhoneNumber());},
                 ),
               ),
             ),

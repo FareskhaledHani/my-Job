@@ -39,7 +39,7 @@ class CustumContainerBubleType extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 25).w,
+      padding:  EdgeInsets.symmetric(horizontal: 25.w),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

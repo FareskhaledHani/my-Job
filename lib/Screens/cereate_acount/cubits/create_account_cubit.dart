@@ -2,6 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:finalproject/Screens/cereate_acount/model/register_model.dart';
 import 'package:meta/meta.dart';
+import '../../../core/cash_helper.dart';
 part 'create_account_state.dart';
 
 class CreateAccountCubit extends Cubit<CreateAccountState> {
@@ -13,12 +14,19 @@ class CreateAccountCubit extends Cubit<CreateAccountState> {
     try{
       emit(AuthLoading());
       final registerModel=RegisterModel(email: email, password: password ,userName:userName);
-      Response response=await dio.post('$baseUrl/auth/login',data: registerModel.tojson());
+      Response response=await dio.post('$baseUrl/auth/register',data: registerModel.tojson());
       if(response.statusCode==200){
+        final token = response.data['token'];
+        CacheHelper.setToken(token);
         emit(AuthAuthenticated());
-      }else {emit(AuthError('Login failed code is up to 200'));}
+      }
+      else {
+        final List<String>errorMessage= response.data['massege']['email'];
+        emit(AuthError( message: errorMessage.first));}
+      print('-=======================================================${response.data}');
     }catch (e){
-      emit(AuthError('an error in code in please try again'));
+      emit(AuthError( message: ' '));
+      print('+++++++++++++++++++++++++++++++++++++$e');
     }
   }
 }

@@ -4,6 +4,7 @@ import 'package:finalproject/Screens/slider_screen/extract_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import '../../components/custom_main_button.dart';
 import '../../components/custum_email_text_field.dart';
 import '../../generated/l10n.dart';
 
@@ -82,7 +83,7 @@ class ResetScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-                nextButton(buttonText: S.of(context).RequestPasswordReset, onpressed: () {
+                MainButton(buttonText:Text( S.of(context).RequestPasswordReset), onPressed: () {
                   Get.to(()=>const CheckEmailScreen());
                 },)
               ],

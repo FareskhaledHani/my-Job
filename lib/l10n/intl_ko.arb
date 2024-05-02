@@ -195,6 +195,21 @@
   "NowHowShowDrink": "이제 누가 약을 마실까요? Donec feugiat massa mi, at hendrerit mauris rutrum입니다. 고객은 매우 중요하며, 그를 따르는 고객이 있습니다.",
   "NowHowShowDrinkInFact": "이제 누가 약을 마실까요? Donec feugiat massa mi, at hendrerit mauris rutrum입니다. 고객은 매우 중요하며, 그를 따르는 고객이 있습니다. 실제로 광고일지라도 만화 직원이 있어야합니다. 이제 누가 약을 마실까요? Donec feugiat massa mi, at hendrerit mauris rutrum입니다.",
   "Month": "월",
-  "ApplyNow": "지금 신청하기"
+  "ApplyNow": "지금 신청하기",
+  "ErrorIsHappened": "오류가 발생했습니다. 다시 시도하거나 네트워크를 확인하세요",
+  "JobDescription": "직무 설명",
+  "ContactsUs": "문의하기",
+  "SkillRequired": "필요한 기술",
+  "WorkDuring": "작업 중",
+  "AboutCompany": "회사 소개",
+  "SavedJobIsDeleted": "저장된 작업이 삭제되었습니다",
+  "PleaseCheckYourNetworkAndTryAgain": "네트워크를 확인하고 다시 시도하세요",
+  "JobApplicationUpdate": "채용 신청 업데이트",
+  "JobApplicationReminders": "채용 신청 알림",
+  "JobsYouMayBeInterestedIn": "당신이 관심을 가질 수 있는 직업",
+  "JobSeekerUpdates": "구직자 업데이트",
+  "ShowProfile": "프로필 표시",
+  "AllMessage": "모든 메시지",
+  "MessageNudges": "메시지 알림"
 
 }

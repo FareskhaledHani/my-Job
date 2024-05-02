@@ -7,3 +7,4 @@ class SaveScreenModel{
   Image imageIconJob;
   SaveScreenModel({required this.imageIconJob,required this.subTitleSave, required this.titleSave,required this.manyDay});
 }
+

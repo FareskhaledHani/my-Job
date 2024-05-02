@@ -195,5 +195,20 @@
   "NowHowShowDrink": "Jetzt, wer sollte die Medizin nehmen? Donec feugiat massa mi, bei hendrerit mauris rutrum at Der Kunde ist sehr wichtig, der Kunde wird vom Kunden verfolgt.",
   "NowHowShowDrinkInFact": "Jetzt, wer sollte die Medizin nehmen? Donec feugiat massa mi, bei hendrerit mauris rutrum at Der Kunde ist sehr wichtig, der Kunde wird vom Kunden verfolgt. Tatsächlich ist es auch in der Werbung wichtig, einen Cartoon-Mitarbeiter zu haben. Jetzt, wer sollte die Medizin nehmen? Donec feugiat massa mi, bei hendrerit mauris rutrum at",
   "Month": "Monat",
-  "ApplyNow": "Jetzt bewerben"
+  "ApplyNow": "Jetzt bewerben",
+  "ErrorIsHappened": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder überprüfen Sie Ihr Netzwerk",
+  "JobDescription": "Jobbeschreibung",
+  "ContactsUs": "Kontaktiere uns",
+  "SkillRequired": "Erforderliche Fähigkeiten",
+  "WorkDuring": "Arbeiten während",
+  "AboutCompany": "Über das Unternehmen",
+  "SavedJobIsDeleted": "Gespeicherte Stelle wurde gelöscht",
+  "PleaseCheckYourNetworkAndTryAgain": "Bitte überprüfen Sie Ihr Netzwerk und versuchen Sie es erneut",
+  "JobApplicationUpdate": "Jobbewerbungsupdate",
+  "JobApplicationReminders": "Bewerbungserinnerungen",
+  "JobsYouMayBeInterestedIn": "Jobs, die für Sie interessant sein könnten",
+  "JobSeekerUpdates": "Jobsuchende Updates",
+  "ShowProfile": "Profil anzeigen",
+  "AllMessage": "Alle Nachrichten",
+  "MessageNudges": "Nachrichtenstupser"
 }

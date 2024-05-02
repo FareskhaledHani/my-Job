@@ -32,7 +32,7 @@ class NONewNotifiction extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(height: 140.h),
-            Image.asset('images/home_screen/notification/notification Ilustration.png'),
+            Image.asset('images/home_screen/notification/Notification Ilustration.png'),
             Text(S.of(context).NoNewNotificationsYet,style:  const TextStyle(fontWeight:FontWeight.w500 ,fontSize:24 ,color:Color(0xff111827) ), textAlign: TextAlign.center,),
             SizedBox(height: 10.h,),
             Text(S.of(context).YouWillReceiveANotificationIfThereIsSomethingOnyourAccount,style:  const TextStyle(fontWeight:FontWeight.w400 ,fontSize:16 ,color:Color(0xff6B7280) ), textAlign: TextAlign.center,),

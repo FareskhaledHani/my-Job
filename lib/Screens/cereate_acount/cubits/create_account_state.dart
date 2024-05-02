@@ -14,5 +14,5 @@ class UnAuthAuthenticated extends CreateAccountState {}
 class AuthError extends CreateAccountState {
   final String message;
 
-  AuthError(this.message);
+  AuthError({required this.message});
 }

@@ -11,8 +11,8 @@ class hope_work_box extends StatelessWidget {
   double topp1;
   String photo1;
   String textPhoto1;
- Rx<Color>  Color1;
- Rx<Color>  Color3;
+ Color  Color1;
+  Color  Color3;
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -22,11 +22,11 @@ class hope_work_box extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               border: Border.all(
-                color:Color3.value, // sets the border color to red
+                color:Colors.black26, // sets the border color to red
                 width: 2.0,
               ),
               borderRadius: BorderRadius.circular(15),
-              color:Color1.value,
+              color:Colors.blue,
             ),
             width: 186.w,
             height: 125.h,
@@ -43,7 +43,7 @@ class hope_work_box extends StatelessWidget {
                   padding: EdgeInsets.only(left: 14, top: 16),
                   child: Text(
                     textPhoto1,
-                    style: TextStyle(
+                    style: const TextStyle(
                         fontSize: 16, fontWeight: FontWeight.w400),
                   ),
                 )

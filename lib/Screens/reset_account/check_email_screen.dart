@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
+import '../../components/custom_main_button.dart';
 import '../../generated/l10n.dart';
 
 class CheckEmailScreen extends StatelessWidget {
@@ -39,7 +40,7 @@ class CheckEmailScreen extends StatelessWidget {
                 SizedBox(height: 250.h),
                 Row(
                   children: [
-                    nextButton(buttonText:S.of(context).OpenEmailApp, onpressed: (){
+                    MainButton(buttonText:S.of(context).OpenEmailApp, onPressed: (){
                       Get.to(()=>CreateNwePasswordScreen());
                     }),
                   ],

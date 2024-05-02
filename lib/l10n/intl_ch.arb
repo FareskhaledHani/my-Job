@@ -195,5 +195,16 @@
   "NowHowShowDrink": "现在该谁喝药了？Donec feugiat massa mi，在 hendrerit mauris rutrum 上客户非常重要，客户将受到客户的关注。",
   "NowHowShowDrinkInFact": "现在该谁喝药了？Donec feugiat massa mi，在 hendrerit mauris rutrum 上客户非常重要，客户将受到客户的关注。实际上，即使是广告，也很重要有一个卡通员工。现在谁应该喝药？Donec feugiat massa mi，在 hendrerit mauris rutrum 上",
   "Month": "月",
-  "ApplyNow": "立即申请"
+  "ApplyNow": "立即申请",
+  "ErrorIsHappened": "发生错误。请重试或检查您的网络",
+  "JobDescription": "工作描述",
+  "ContactsUs": "联系我们",
+  "SkillRequired": "所需技能",
+  "WorkDuring": "工作期间",
+  "AboutCompany": "关于公司",
+  "SavedJobIsDeleted": "保存的工作已删除",
+  "PleaseCheckYourNetworkAndTryAgain": "请检查您的网络并重试",
+  "JobApplicationUpdate": "工作申请更新",
+  "JobApplicationReminders": "工作申请提醒",
+  "JobsYouMayBeInterestedIn": "您可能感兴趣的工作"
 }

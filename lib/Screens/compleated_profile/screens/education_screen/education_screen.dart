@@ -1,6 +1,8 @@
+import 'package:finalproject/components/custom_empty_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../components/custom_main_button.dart';
 import '../../../../components/custum-field_date_select.dart';
 import '../../../../components/custum_title_text.dart';
 import '../../../../constant/constants.dart';
@@ -55,7 +57,9 @@ class _EducationState extends State<Education> {
                         color: Color(0xff9CA3AF)),
                   ),
                   SizedBox(height: 5.h),
-                  FieldUsedHint(),
+                  CustomFieldEmpty(
+                    validator: (value ) {  if (value!.isEmpty) {return 'Name Is Empty';} else if (value.length < 4 ) {return 'Name Is Least Please Check Your Name';}},
+                    initialValue: 'Product Designer', hintText: '', onChange: (String ) {  },),
                   SizedBox(
                     height: 10.h,
                   ),
@@ -67,7 +71,9 @@ class _EducationState extends State<Education> {
                         color: Color(0xff9CA3AF)),
                   ),
                   SizedBox(height: 5.h),
-                  FieldUsedHint(),
+                  CustomFieldEmpty(
+                    validator: (value ) {  if (value!.isEmpty) {return 'Name Is Empty';} else if (value.length < 4 ) {return 'Name Is Least Please Check Your Name';}},
+                    initialValue: 'Product Designer', hintText: '', onChange: (String ) {  },),
                   SizedBox(
                     height: 10.h,
                   ),
@@ -101,8 +107,8 @@ class _EducationState extends State<Education> {
                       child: Align(
                           alignment: Alignment.bottomCenter,
                           child: Center(
-                              child: nextButton(
-                                  buttonText: S.of(context).Save, onpressed: () {}))))
+                              child: MainButton(
+                                  buttonText: Text(S.of(context).Save), onPressed: () {}))))
                 ],
               ),
             ),

@@ -12,7 +12,7 @@ class CustumLoadedPdfContainer extends StatelessWidget {
   VoidCallback onTapEdit;
   VoidCallback onTapclear;
   String titlePdf;
-  String SubtitlePdf;
+  dynamic SubtitlePdf;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -31,8 +31,8 @@ class CustumLoadedPdfContainer extends StatelessWidget {
             FontAwesomeIcons.solidFilePdf,
             color: Colors.red[800],
           ),
-          title: Text(titlePdf),
-          subtitle: Text(SubtitlePdf),
+          title: SizedBox( width: 50.w, child: Text(titlePdf,overflow: TextOverflow.ellipsis,maxLines: 1,)),
+          subtitle: Text('$SubtitlePdf Mb'),
           trailing: Container(
             height: 50,
             width: 50,

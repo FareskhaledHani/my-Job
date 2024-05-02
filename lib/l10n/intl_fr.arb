@@ -195,5 +195,20 @@
   "NowHowShowDrink": "Maintenant, qui devrait prendre le médicament? Donec feugiat massa mi, chez hendrerit mauris rutrum sur Le client est très important, le client est suivi par le client.",
   "NowHowShowDrinkInFact": "Maintenant, qui devrait prendre le médicament? Donec feugiat massa mi, chez hendrerit mauris rutrum sur Le client est très important, le client est suivi par le client. En fait, même s'il s'agit de publicité, il est important d'avoir un employé de dessin animé. Maintenant, qui devrait prendre le médicament? Donec feugiat massa mi, chez hendrerit mauris rutrum sur",
   "Month": "mois",
-  "ApplyNow": "Postuler maintenant"
+  "ApplyNow": "Postuler maintenant",
+  "ErrorIsHappened": "Une erreur s'est produite. Veuillez réessayer ou vérifier votre réseau",
+  "JobDescription": "Description du poste",
+  "ContactsUs": "Nous contacter",
+  "SkillRequired": "Compétences requises",
+  "WorkDuring": "Travailler pendant",
+  "AboutCompany": "À propos de l'entreprise",
+  "SavedJobIsDeleted": "L'emploi enregistré a été supprimé",
+  "PleaseCheckYourNetworkAndTryAgain": "Veuillez vérifier votre réseau et réessayer",
+  "JobApplicationUpdate": "Mise à jour de la candidature",
+  "JobApplicationReminders": "Rappels de candidature",
+  "JobsYouMayBeInterestedIn": "Emplois susceptibles de vous intéresser",
+  "JobSeekerUpdates": "Mises à jour du demandeur d'emploi",
+  "ShowProfile": "Afficher le profil",
+  "AllMessage": "Tous les messages",
+  "MessageNudges": "Incitations aux messages"
 }

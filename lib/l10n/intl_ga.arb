@@ -195,5 +195,21 @@
   "NowHowShowDrink": "さて、誰が薬を飲むべきですか？ Donec feugiat massa mi、at hendrerit mauris rutrum at 顧客は非常に重要です。顧客は顧客によって追跡されます。",
   "NowHowShowDrinkInFact": "さて、誰が薬を飲むべきですか？ Donec feugiat massa mi、at hendrerit mauris rutrum at 顧客は非常に重要です。顧客は顧客によって追跡されます。実際、広告でもカートゥーンの従業員を持つことが重要です。さて、誰が薬を飲むべきですか？ Donec feugiat massa mi、at hendrerit mauris rutrum at",
   "Month": "月",
-  "ApplyNow": "今すぐ申し込む"
+  "ApplyNow": "今すぐ申し込む",
+  "ErrorIsHappened": "エラーが発生しました。もう一度やり直すか、ネットワークを確認してください",
+  "JobDescription": "仕事の説明",
+  "ContactsUs": "お問い合わせ",
+  "SkillRequired": "必要なスキル",
+  "WorkDuring": "期間中の作業",
+  "AboutCompany": "会社概要",
+  "SavedJobIsDeleted": "保存された仕事が削除されました",
+  "PleaseCheckYourNetworkAndTryAgain": "ネットワークを確認して、もう一度やり直してください",
+
+  "JobApplicationUpdate": "求人申し込みの更新",
+  "JobApplicationReminders": "求人応募のリマインダー",
+  "JobsYouMayBeInterestedIn": "あなたが興味を持つかもしれない仕事",
+  "JobSeekerUpdates": "求職者のアップデート",
+  "ShowProfile": "プロフィールを表示",
+  "AllMessage": "すべてのメッセージ",
+  "MessageNudges": "メッセージのヒント"
 }

@@ -195,5 +195,20 @@
   "NowHowShowDrink": "Sekarang siapa yang harus minum obat? Donec feugiat massa mi, at hendrerit mauris rutrum pada Pelanggan sangat penting, dia akan diikuti oleh pelanggan.",
   "NowHowShowDrinkInFact": "Sekarang siapa yang harus minum obat? Donec feugiat massa mi, at hendrerit mauris rutrum pada Pelanggan sangat penting, dia akan diikuti oleh pelanggan. Bahkan jika itu iklan, penting untuk memiliki karyawan kartun. Sekarang siapa yang harus minum obat? Donec feugiat massa mi, at hendrerit mauris rutrum pada",
   "Month": "mese",
-  "ApplyNow": "Applica ora"
+  "ApplyNow": "Applica ora",
+  "ErrorIsHappened": "Error terjadi. Silakan coba lagi atau periksa jaringan Anda",
+  "JobDescription": "Deskripsi pekerjaan",
+  "ContactsUs": "Hubungi kami",
+  "SkillRequired": "Keterampilan yang diperlukan",
+  "WorkDuring": "Bekerja selama",
+  "AboutCompany": "Tentang perusahaan",
+  "SavedJobIsDeleted": "Pekerjaan yang disimpan telah dihapus",
+  "PleaseCheckYourNetworkAndTryAgain": "Silakan periksa jaringan Anda dan coba lagi",
+  "JobApplicationUpdate": "Pembaruan aplikasi pekerjaan",
+  "JobApplicationReminders": "Pengingat aplikasi pekerjaan",
+  "JobsYouMayBeInterestedIn": "Pekerjaan yang mungkin Anda minati",
+  "JobSeekerUpdates": "Pembaruan pencari kerja",
+  "ShowProfile": "Tampilkan profil",
+  "AllMessage": "Semua pesan",
+  "MessageNudges": "Pengingat pesan"
 }

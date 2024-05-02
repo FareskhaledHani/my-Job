@@ -1,13 +1,17 @@
 import 'package:finalproject/Screens/slider_screen/extract_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../components/custom_main_button.dart';
 import '../../../components/custum_email_text_field.dart';
 import '../../../components/custum_title_text.dart';
 import '../../../constant/constants.dart';
 import '../../../generated/l10n.dart';
+import '../../home_screen/profile_screen/service/get_profile_service.dart';
 
-class EmailAdress extends StatelessWidget {
-  const EmailAdress({Key? key}) : super(key: key);
+class EmailAddress extends StatelessWidget {
+  const EmailAddress({Key? key, required this.email,required this.getProfileService}) : super(key: key);
+  final String email;
+  final GetProfileService getProfileService;
 
   @override
   Widget build(BuildContext context) {
@@ -29,13 +33,14 @@ class EmailAdress extends StatelessWidget {
           children: [
             CustumTitle_400_16_black(title: S.of(context).MainEMailAddress),
             SizedBox(height: 10.h),
-            EmailCustumTextField(hint: 'fareskhaledhani@gmail.com', icon:Icons.email_outlined, onPressed: (String value) {  },),
+            EmailCustumTextField(hint:email, icon:Icons.email_outlined, onPressed: (String value) {  },),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,
-                child: nextButton(
-                  buttonText: S.of(context).Save,
-                  onpressed: () {},
+                child: MainButton(
+                  buttonText: Text(S.of(context).Save),
+                  onPressed: () {Navigator.pop(context);
+                  getProfileService.getUserProfile();},
                 ),
               ),
             ),

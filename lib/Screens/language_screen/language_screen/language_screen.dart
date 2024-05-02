@@ -1,193 +1,99 @@
-import 'package:country_flags/country_flags.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import '../../../components/custum_title_text.dart';
-import '../../../constant/constants.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import '../../../core/cash_helper.dart';
 import '../../../generated/l10n.dart';
 
 class LanguageScreen extends StatefulWidget {
-   LanguageScreen({Key? key}) : super(key: key);
+  const LanguageScreen({Key? key}) : super(key: key);
 
   @override
   State<LanguageScreen> createState() => _LanguageScreenState();
 }
 
 class _LanguageScreenState extends State<LanguageScreen> {
-  String _value ='';
+  final List<Map<String, String>> languageList = [
+    {'name': 'English', 'flag': 'images/flags/England.png', 'locale': 'en'},
+    {'name': 'Indonesia', 'flag': 'images/flags/Indonesia.png', 'locale': 'id'},
+    {'name': 'Arabic', 'flag': 'images/flags/Saudi Arabia.png', 'locale': 'ar'},
+    {'name': 'Dutch', 'flag': 'images/flags/Netherlands.png', 'locale': 'nl'},
+    {'name': 'French', 'flag': 'images/flags/France.png', 'locale': 'fr'},
+    {'name': 'German', 'flag': 'images/flags/Germany.png', 'locale': 'de'},
+    {'name': 'Japanese', 'flag': 'images/flags/Japan.png', 'locale': 'ja'},
+    {'name': 'Korean', 'flag': 'images/flags/South Korea.png', 'locale': 'ko'},
+    {'name': 'Portuguese', 'flag': 'images/flags/Portugal.png', 'locale': 'pt'},
+  ];
+
+  String selectedLanguage = '';
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: KPrimaryBackGroundColor,
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.arrow_back_outlined),
-              onPressed: () {
-                Get.back();
-              },
-            );
+        foregroundColor: Colors.black,
+        backgroundColor: Colors.white,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_outlined),
+          onPressed: () {
+            Get.back();
           },
         ),
-        foregroundColor: Colors.black,
         centerTitle: true,
-        backgroundColor: Colors.white,
-        title:  Text(
+        title: Text(
           S.of(context).Language,
           style: const TextStyle(
-              fontWeight: FontWeight.w500, fontSize: 20, color: Colors.black),
+            fontWeight: FontWeight.w500,
+            fontSize: 20,
+            color: Colors.black,
+          ),
         ),
         elevation: 0,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(20.0).r,
-        child: Column(
-          children: [
-
-            ListTile(
-
-              horizontalTitleGap: 5,
-              leading: Image.asset('images/flags/England.png'),
-              title: Text('English'),
-              trailing: Radio(
-                value: 'en',
-                groupValue: _value,
-                onChanged: (value) {
-                  setState((){
-                    _value=value.toString();
-                  });
-                },
-              ),
-            ),
-            Divider(thickness: 2,),
-            ListTile(
-              minLeadingWidth: 10,
-              leading: Image.asset('images/flags/Indonesia.png'),
-              title: Text('Indonisia'),
-              trailing: Radio(
-                value: 'en',
-                groupValue: _value,
-                onChanged: (value) {
-                  setState((){
-                    _value=value.toString();
-                  });
-                },
-              ),
-            ),
-            Divider(thickness: 2,),
-            ListTile(
-              minLeadingWidth: 10,
-              leading: Image.asset('images/flags/Saudi Arabia.png'),
-              title: Text('Arabic'),
-              trailing: Radio(
-                value: 'en',
-                groupValue: _value,
-                onChanged: (value) {
-                  setState((){
-                    _value=value.toString();
-                  });
-                },
-              ),
-            ),
-            Divider(thickness: 2,),
-            ListTile(
-              minLeadingWidth: 10,
-              horizontalTitleGap: 1,
-              leading: Image.asset('images/flags/England.png'),
-              title: Text('English'),
-              trailing: Radio(
-                value: 'en',
-                groupValue: _value,
-                onChanged: (value) {
-                  setState((){
-                    _value=value.toString();
-                  });
-                },
-              ),
-            ),
-            Divider(thickness: 2,),
-            ListTile(
-              minLeadingWidth: 10,
-              leading: Image.asset('images/flags/England.png'),
-              title: Text('English'),
-              trailing: Radio(
-                value: 'en',
-                groupValue: _value,
-                onChanged: (value) {
-                  setState((){
-                    _value=value.toString();
-                  });
-                },
-              ),
-            ),
-            Divider(thickness: 2,),
-            ListTile(
-              minLeadingWidth: 10,
-              leading: Image.asset('images/flags/England.png'),
-              title: Text('English'),
-              trailing: Radio(
-                value: 'en',
-                groupValue: _value,
-                onChanged: (value) {
-                  setState((){
-                    _value=value.toString();
-                  });
-                },
-              ),
-            ),
-            Divider(thickness: 2,),
-            ListTile(
-              minLeadingWidth: 10,
-              leading: Image.asset('images/flags/England.png'),
-              title: Text('English'),
-              trailing: Radio(
-                value: 'en',
-                groupValue: _value,
-                onChanged: (value) {
-                  setState((){
-                    _value=value.toString();
-                  });
-                },
-              ),
-            ),
-            Divider(thickness: 2,),
-            ListTile(
-              minLeadingWidth: 10,
-              leading: Image.asset('images/flags/England.png'),
-              title: Text('English'),
-              trailing: Radio(
-                value: 'en',
-                groupValue: _value,
-                onChanged: (value) {
-                  setState((){
-                    _value=value.toString();
-                  });
-                },
-              ),
-            ),
-            const Divider(thickness: 2,),
-            ListTile(
-              leading: Image.asset('images/flags/England.png'),
-              title: Text('English'),
-              trailing: Radio(
-                value: 'en',
-                groupValue: _value,
-                onChanged: (value) {
-                  setState((){
-                    _value=value.toString();
-                  });
-                },
-              ),
-            ),
-            Divider(thickness: 2,),
-          ],
+        padding: const EdgeInsets.all(10.0),
+        child: ListView.builder(
+          itemCount: languageList.length,
+          itemBuilder: (context, index) {
+            final language = languageList[index];
+            return buildLanguageTile(context, language);
+          },
         ),
       ),
+    );
+  }
+
+  Widget buildLanguageTile(BuildContext context, Map<String, String> language) {
+    final String languageName = language['name']!;
+    final String flagPath = language['flag']!;
+    final String locale = language['locale']!;
+    return Column(
+      children: [
+        ListTile(
+          onTap: () {
+            setState(() {
+              selectedLanguage = locale;
+              CacheHelper.setLanguage(locale);
+              Get.updateLocale(Locale(locale));
+            });
+          },
+          minLeadingWidth: 10,
+          leading: Image.asset(flagPath),
+          title: Text(languageName),
+          trailing: Radio<String>(
+            value: locale,
+            groupValue: CacheHelper.getLanguage(),
+            onChanged: (value)  {
+            },
+          ),
+        ),
+        Divider(
+          thickness: 1.h,
+          indent: 20.w,
+          endIndent: 30.w,
+        )
+      ],
     );
   }
 }

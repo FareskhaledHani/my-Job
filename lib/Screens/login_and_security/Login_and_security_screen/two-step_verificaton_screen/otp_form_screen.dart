@@ -3,11 +3,14 @@ import 'package:finalproject/components/custum_subtitle_text.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../../../components/custom_main_button.dart';
 import '../../../../components/custum_title_text.dart';
 import '../../../../constant/constants.dart';
+import '../../../../generated/l10n.dart';
 import '../../../slider_screen/extract_widget.dart';
 
 class OtpFormScreen extends StatelessWidget {
@@ -75,14 +78,14 @@ class OtpFormScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20,),
+            SizedBox(height: 20.h),
             TextButton(onPressed: (){}, child: Text('resent code')),
             Expanded(
               child: Align(
                 alignment: Alignment.bottomCenter,
-                child: nextButton(
-                  buttonText: 'Next',
-                  onpressed: () {Get.to(()=>AddingVerifivationMethod()); },
+                child: MainButton(
+                  buttonText:Text(S.of(context).Next),
+                  onPressed: () {Get.to(()=>const AddingVerifivationMethod()); },
                 ),
               ),
             ),

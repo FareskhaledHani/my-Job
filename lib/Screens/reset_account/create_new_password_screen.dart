@@ -4,6 +4,7 @@ import 'package:finalproject/Screens/slider_screen/extract_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import '../../components/custom_main_button.dart';
 import '../../generated/l10n.dart';
 
 class CreateNwePasswordScreen extends StatelessWidget {
@@ -91,7 +92,7 @@ class CreateNwePasswordScreen extends StatelessWidget {
               ],
               ),
               SizedBox(height: 300.h),
-              nextButton(buttonText: S.of(context).RestPassword, onpressed: (){
+              MainButton(buttonText: S.of(context).RestPassword, onPressed: (){
                 Get.to(()=>PasswordChangedSuccesfull());
               }),
 

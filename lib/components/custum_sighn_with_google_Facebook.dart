@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 
 import '../Screens/slider_screen/extract_widget.dart';
 import '../generated/l10n.dart';
+import 'custom_container_logo.dart';
 
 class SighnWithGoogleAndFaceBook extends StatelessWidget {
   const SighnWithGoogleAndFaceBook({
@@ -16,7 +17,7 @@ class SighnWithGoogleAndFaceBook extends StatelessWidget {
         flex: 1,
         child: Padding(
             padding: const EdgeInsets.only(right: 10.0),
-            child: ButtonSinWith(onPressed: (){}, image: 'images/create_acount/google.png', TextIcon: S.of(context).Google,)
+            child: ButtonSinWith(onPressed: (){}, image: 'images/create_acount/google.png', textIcon: S.of(context).Google,)
         ),
       ),
 
@@ -24,7 +25,7 @@ class SighnWithGoogleAndFaceBook extends StatelessWidget {
         flex: 1,
         child: Padding(
           padding: const EdgeInsets.only(right: 10.0),
-          child:  ButtonSinWith(TextIcon: S.of(context).FaceBook, image: 'images/create_acount/Facebook.png', onPressed: (){},),
+          child:  ButtonSinWith(textIcon: S.of(context).FaceBook, image: 'images/create_acount/Facebook.png', onPressed: (){},),
         ),
       ),
     ],);

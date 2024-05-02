@@ -8,6 +8,7 @@ import 'package:ionicons/ionicons.dart';
 
 import '../../../../components/custum_title_text.dart';
 import '../../../../constant/constants.dart';
+import '../../components/custom_main_button.dart';
 import '../../components/custum_container_buble.dart';
 import '../../components/custum_container_logo__apply_job.dart';
 import '../../components/custum_type_of_work_icon_radio.dart';
@@ -78,7 +79,7 @@ class _TypeAgainAppliedJobState extends State<TypeAgainAppliedJob> {
               SizedBox(
                 height: 30.h,
               ),
-              Container(
+              SizedBox(
                 height: 420.h,
                 width: MediaQuery
                     .of(context)
@@ -125,7 +126,7 @@ class _TypeAgainAppliedJobState extends State<TypeAgainAppliedJob> {
 
 
 
-              nextButton(buttonText: S.of(context).Next, onpressed: () {}),
+              MainButton(buttonText: Text(S.of(context).Next), onPressed: () {}),
             ],
           )
 

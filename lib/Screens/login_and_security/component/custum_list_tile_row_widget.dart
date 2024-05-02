@@ -19,21 +19,19 @@ class CustumListTileRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       onTap:ontap,
-      title: CustumTitle_400_16_black(
-        title: text,
-      ),
+      title: Text(text,style:  TextStyle(fontSize:16.sp,fontWeight: FontWeight.w400,color: Colors.black),),
       trailing: SizedBox(
         width: 210.w,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.values[1],
           children: [
-            CustumSubTitle_400_12_grey(subTitle:hitenText),
+            Text(hitenText,style: TextStyle(fontWeight: FontWeight.w400,fontSize: 14.sp,color: Colors.grey),),
             SizedBox(
               width: 10.w,
             ),
-            Icon(
-              FontAwesomeIcons.arrowRightLong,
-              size: 15,
+             Icon(
+              Icons.arrow_forward_rounded,
+              size: 22.sp,
               color: Colors.black,
             ),
           ],

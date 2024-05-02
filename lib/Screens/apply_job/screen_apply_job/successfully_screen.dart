@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
+import '../../../components/custom_main_button.dart';
 import '../../../generated/l10n.dart';
 import '../../bottom_nav_bar/views/bottom_nav_bar_view.dart';
 
@@ -42,7 +43,7 @@ class DataSuccessfully extends StatelessWidget {
             SizedBox(height: 10.h,),
             Text(S.of(context).YouWillGetAMessageFromOurTeamAboutTheAnnouncementOfEmployeeAcceptance,style: TextStyle(fontWeight:FontWeight.w400 ,fontSize:16 ,color:Color(0xff6B7280) ), textAlign: TextAlign.center,),
             SizedBox(height: 220.h,),
-            nextButton(buttonText: S.of(context).BackToHome, onpressed: (){Get.to(()=>BottomNavBar());})
+            MainButton(buttonText: S.of(context).BackToHome, onPressed: (){Get.to(()=>BottomNavBar());})
           ],
         ),
       ),

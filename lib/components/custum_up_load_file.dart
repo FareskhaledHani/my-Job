@@ -6,12 +6,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../generated/l10n.dart';
 import 'custum_subtitle_text.dart';
 import 'custum_title_text.dart';
-class CustumUpLoadFileContainer extends StatelessWidget {
-  const CustumUpLoadFileContainer({
+class CustomUpLoadFileContainer extends StatelessWidget {
+  const CustomUpLoadFileContainer({
     required this.ontap,
-    Key? key,
+    Key? key, required this.onPressedIcon,
   }) : super(key: key);
  final VoidCallback ontap;
+ final VoidCallback onPressedIcon;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -35,10 +36,10 @@ class CustumUpLoadFileContainer extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 20,),
-              const CircleAvatar(
+               CircleAvatar(
                 backgroundColor: const Color(0xffD6E4FF),
                 maxRadius: 30,
-                child: const Icon(FontAwesomeIcons.fileArrowUp,size: 30,),
+                child: IconButton(onPressed: onPressedIcon, icon: const Icon(FontAwesomeIcons.fileArrowUp,size: 30,),)
               ),
               const SizedBox(
                 height: 20,

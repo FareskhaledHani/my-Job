@@ -6,14 +6,20 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:ionicons/ionicons.dart';
 import '../../../components/Custum_buble_check.dart';
+import '../../../components/custom_main_button.dart';
 import '../../../components/custum_container_buble.dart';
+import '../../../constant/constants.dart';
 import '../../../generated/l10n.dart';
 import '../../slider_screen/extract_widget.dart';
 import '../component/custem_widget.dart';
 import '../models/type_of_work_model.dart';
 
 class TypeOfWork extends StatelessWidget {
-  TypeOfWork({Key? key, }) : super(key: key);
+  TypeOfWork({Key? key, required this.name, required this.email, required this.number, }) : super(key: key);
+
+  final String name;
+  final String email;
+  final String number;
   final List<TypeWorkModel>workCard = [
     TypeWorkModel(nameWork: 'Ui  Desighner', portfolio: 'portfolio', isSelected: false),
     TypeWorkModel(nameWork: 'Ui  Desighner', portfolio: 'portfolio', isSelected: false),
@@ -26,53 +32,55 @@ class TypeOfWork extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        appBar: AppBar(
-          leading:Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: const Icon(Icons.arrow_back_outlined),
-                onPressed: () { Get.back();},
-              );
-            },
-          ) ,
-          foregroundColor: Colors.black,
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          title: Text(S.of(context).AppliedJob, style: const TextStyle(
-              fontWeight: FontWeight.w500, fontSize: 20, color: Colors.black),),
-          elevation: 0,),
-        body: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20).w,
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                CustumContainerBubleType(),
-                SizedBox(height: 40.h,),
-                Text(S.of(context).TypeOfWork, style: TextStyle(
-                    fontSize: 25.sp, fontWeight: FontWeight.w500),),
-                SizedBox(height: 8.h,),
-                 Text(S.of(context).FillInYourBioDataCorrectly),
-                SizedBox(height: 30.h,),
-                Container(
-                  height: 420.h,
-                  width: MediaQuery.of(context).size.width,
-                  child: ListView.builder(
-                    itemCount: workCard.length,
-                    itemBuilder: (
-                        BuildContext context, int index) {
-                      return TybeOfWorkIcon(workCard[index].nameWork, workCard[index].portfolio, workCard[index].isSelected,index);
-                    },),
-                ),
-                nextButton(buttonText: S.of(context).Next, onpressed: () {
+    return Scaffold(
+      backgroundColor:KPrimaryBackGroundColor ,
+      appBar: AppBar(
+        leading:Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.arrow_back_outlined),
+              onPressed: () { Get.back();},
+            );
+          },
+        ) ,
+        foregroundColor: Colors.black,
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        title: Text(S.of(context).AppliedJob, style: const TextStyle(
+            fontWeight: FontWeight.w500, fontSize: 20, color: Colors.black),),
+        elevation: 0,),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 20).w,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CustumContainerBubleType(),
+            SizedBox(height: 40.h,),
+            Text(S.of(context).TypeOfWork, style: TextStyle(
+                fontSize: 25.sp, fontWeight: FontWeight.w500),),
+            SizedBox(height: 8.h,),
+             Text(S.of(context).FillInYourBioDataCorrectly),
+            SizedBox(height: 30.h,),
+            SizedBox(
+              height: 420.h,
+              width: MediaQuery.of(context).size.width,
+              child: ListView.builder(
+                itemCount: workCard.length,
+                itemBuilder: (
+                    BuildContext context, int index) {
+                  return TybeOfWorkIcon(workCard[index].nameWork, workCard[index].portfolio, workCard[index].isSelected,index);
+                },),
+            ),
+            Expanded(
+
+              child: Align(
+                alignment:Alignment.bottomCenter ,
+                child: MainButton(buttonText:Text( S.of(context).Next), onPressed: () {
                   Get.to(() => const UploadFile());
                 }),
-              ],
+              ),
             ),
-
-          ),
+          ],
         ),
       ),
     );
@@ -94,7 +102,7 @@ class TypeOfWork extends StatelessWidget {
           
           subtitle: Text(typeFile),
           selectedTileColor: Colors.blue,
-          trailing:isSelected ?Icon(Ionicons.radio_button_on_outline):Icon(Ionicons.radio_button_off_outline) ,
+          trailing:isSelected ?const Icon(Ionicons.radio_button_on_outline):const Icon(Ionicons.radio_button_off_outline) ,
         ),
       ),
     );

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../../components/custum_title_text.dart';
 import '../../../../constant/constants.dart';
+import '../../components/custom_main_button.dart';
 import '../../components/custum_container_buble.dart';
 import '../../components/custum_container_logo__apply_job.dart';
 import '../../components/custum_phone_field.dart';
@@ -48,7 +49,7 @@ class BioAgainAppliedJob extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 10.h,),
-                CustomFilterTextField(iconSet:const Icon(Icons.person_outline), onSubmitted: (String value) {  },),
+               // CustomFilterTextField(iconSet:const Icon(Icons.person_outline), onSubmitted: (String value) {  },),
                 SizedBox(height: 20.h,),
                 Row(
                   children: [
@@ -57,7 +58,7 @@ class BioAgainAppliedJob extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 10.h,),
-                CustomFilterTextField(iconSet:const Icon(Icons.email_outlined), onSubmitted: (String value) {  },),
+               // CustomFilterTextField(iconSet:const Icon(Icons.email_outlined), onSubmitted: (String value) {  },),
                 SizedBox(height: 20.h,),
                 Row(
                   children: [
@@ -66,13 +67,13 @@ class BioAgainAppliedJob extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 10.h,),
-                CustumPhoneField(
+                CustomPhoneField(
                   onchange: (phone) {},
                 ),
                 SizedBox(height:110.h),
                 Padding(
                   padding: const EdgeInsets.only(bottom: 10.0),
-                  child: nextButton(buttonText: 'Next', onpressed:(){ }),
+                  child: MainButton(buttonText: Text(S.of(context).OpenEmailApp), onPressed:(){ }),
                 ),
               ],
             )

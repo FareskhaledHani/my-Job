@@ -41,22 +41,17 @@ class MiniDialogIcon extends StatelessWidget {
 
 class IconNotification extends StatelessWidget {
   final int count;
-  final Function onTap;
+  //final Function onTap;
   final String image ;
 
-  IconNotification({Key? key, required this.count, required this.onTap,required this.image})
+ const IconNotification({Key? key, required this.count, required this.image})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        InkWell(
-          onTap: () {
-            onTap();
-          },
-          child: IconCircle(icon:  Ionicons.notifications_outline, ontap: () {  },),
-        ),
+        IconCircle(icon:  Ionicons.notifications_outline, ontap: () {  },),
         count > 0
             ? Positioned(
           top: 0,
@@ -69,14 +64,14 @@ class IconNotification extends StatelessWidget {
                   ),
                   child: Text(
                     count >9 ?'+9': count.toString(),
-                    style: const TextStyle(
+                    style:  TextStyle(
                       color: Colors.white,
-                      fontSize: 12,
+                      fontSize: 14.sp,
                     ),
                   ),
                 ),
               )
-            : SizedBox(),
+            : const SizedBox(),
       ],
     );
   }
@@ -90,10 +85,10 @@ class IconNotification extends StatelessWidget {
       children: [
         ListTile(
           onTap: ontap,
-          leading:IconNotification(count: 2, onTap: (){}, image: messagesCard.imageLeading,),
+          leading:IconNotification(count: 2, image: messagesCard.imageLeading,),
           title: Text(messagesCard.title),
           subtitle: Text(messagesCard.subtitle,style: TextStyle(color:Color(0xff6B7280),fontSize: 12.sp,fontWeight: FontWeight.w400 ),),
-          trailing: Text('12.39',style: TextStyle(color:Colors.blue,fontSize: 12.sp,fontWeight: FontWeight.w400 ),),
+          trailing: Text('12.39',maxLines: 1,style: TextStyle(color:Colors.blue,fontSize: 12.sp,fontWeight: FontWeight.w400 ,overflow: TextOverflow.ellipsis),),
         ),
         Padding(
           padding: const EdgeInsets.only(left: 90).w,
