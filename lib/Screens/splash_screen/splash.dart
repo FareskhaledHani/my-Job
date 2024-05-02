@@ -27,23 +27,23 @@ class SplashScreen extends StatelessWidget {
           ],
         ),
       ),
-      nextScreen: CreateAccount(), // Call the custom function to determine the next screen
+      nextScreen: _getNextScreen(), // Call the custom function to determine the next screen
     );
   }
 
-  // Widget _getNextScreen() {
-  //   // Check your conditions to determine the next screen
-  //   if (CacheHelper.getToken().isNotEmpty) {
-  //     // If token is present, return BottomNavBar
-  //     return const BottomNavBar();
-  //   } else if (CacheHelper.getToken().isEmpty && CacheHelper.getFirstTime().isNotEmpty) {
-  //     // If token is empty and it's not the first time, return LoginScreen
-  //     return const LoginScreen();
-  //   } else {
-  //     // Otherwise, return SplashScreen
-  //     return SliderScreens();
-  //   }
-  // }
+  Widget _getNextScreen() {
+    // Check your conditions to determine the next screen
+    if (CacheHelper.getToken().isNotEmpty) {
+      // If token is present, return BottomNavBar
+      return const BottomNavBar();
+    } else if (CacheHelper.getToken().isEmpty && CacheHelper.getFirstTime().isNotEmpty) {
+      // If token is empty and it's not the first time, return LoginScreen
+      return const LoginScreen();
+    } else {
+      // Otherwise, return SplashScreen
+      return SliderScreens();
+    }
+  }
 }
 
 //if( CacheHelper.getToken().isNotEmpty){BottomNavBar()}else if ( CacheHelper.getToken().isEmpty&&CacheHelper.getFirstTime.isNotEmpty){LoginScreen()}else SliderScreens()
