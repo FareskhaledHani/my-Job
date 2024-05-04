@@ -11,12 +11,12 @@ class SearchCubit extends Cubit<SearchState> {
   final Url2= 'https://project2.amit-learning.com/api/jobs/search';
   Dio dio = Dio();
   SearchCubit() : super(SearchInitial());
-  Future<void> fetchJobs() async {
+  Future<void> fetchJobs( String searchText) async {
     emit(GetSearchJobLoadingState());
     try {
 
       Response response = await dio.post(
-        Url2,
+        Url2,data: searchText,
         options: Options(
           headers: {"Authorization": "Bearer ${CacheHelper.getToken()}"},
         ),

@@ -1,13 +1,10 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:finalproject/Screens/cereate_acount/cereate_acount.dart';
 import 'package:finalproject/Screens/slider_screen/slider_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
 import '../../core/cash_helper.dart';
-import '../apply_job/screen_apply_job/tybe_of_work_screen.dart';
 import '../bottom_nav_bar/views/bottom_nav_bar_view.dart';
-import '../hope_work_screen/screen/type_of_work.dart';
 import '../login_screen/login_screen.dart';
 
 class SplashScreen extends StatelessWidget {

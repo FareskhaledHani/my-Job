@@ -72,6 +72,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Confirm your new password"),
         "Contacted": MessageLookupByLibrary.simpleMessage("Contacted"),
         "ContactsUs": MessageLookupByLibrary.simpleMessage("Contact us"),
+        "Contract": MessageLookupByLibrary.simpleMessage("Contract"),
         "CreateAbetterFutureForYourselfHere":
             MessageLookupByLibrary.simpleMessage(
                 "Create a better future for yourself here"),
@@ -89,6 +90,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "EmailAddress": MessageLookupByLibrary.simpleMessage("Email address"),
         "EmployeesFor": MessageLookupByLibrary.simpleMessage("Employees For"),
         "EndYear": MessageLookupByLibrary.simpleMessage("EndYear"),
+        "EndYearIsEmpty":
+            MessageLookupByLibrary.simpleMessage("end year is required"),
         "EnterTheEmailAddressYouUsedWhenYouJoinedAndWellSendYouInstructionsToResetYourPassword":
             MessageLookupByLibrary.simpleMessage(
                 "Enter the email address you used when you       joined and we’ll send you instructions to reset       your password."),
@@ -116,6 +119,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "FullNameEmailPhoneNumberAndyourAddress":
             MessageLookupByLibrary.simpleMessage(
                 "Full name, email, phone number, and your address"),
+        "FullTime": MessageLookupByLibrary.simpleMessage("FullTime"),
         "General": MessageLookupByLibrary.simpleMessage("General"),
         "GetStarted": MessageLookupByLibrary.simpleMessage("Get Started"),
         "GetTheBest": MessageLookupByLibrary.simpleMessage("Get the best"),
@@ -130,6 +134,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ImmediatelyJoinUsAndStartApplyingForTheJobYouAreInterestedIn":
             MessageLookupByLibrary.simpleMessage(
                 "Immediately join us and start applying for the job you are interested in."),
+        "InternShip": MessageLookupByLibrary.simpleMessage("InternShip"),
         "JobApplicationReminders":
             MessageLookupByLibrary.simpleMessage("Job Application Reminders"),
         "JobApplicationUpdate":
@@ -142,6 +147,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "JobSaved": MessageLookupByLibrary.simpleMessage("Job Saved"),
         "JobSeekerUpdates":
             MessageLookupByLibrary.simpleMessage("Job Seeker Updates"),
+        "JobTitle": MessageLookupByLibrary.simpleMessage("Job Title"),
+        "JobType": MessageLookupByLibrary.simpleMessage("JobType"),
         "Jobs": MessageLookupByLibrary.simpleMessage("Jobs"),
         "JobsYouMayBeInterestedIn": MessageLookupByLibrary.simpleMessage(
             "Jobs You May Be Interested In"),
@@ -150,6 +157,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "LetUsKnowWhereIsTheWorkLocationYouWantAtThisTimSoWeCanAdjustIt":
             MessageLookupByLibrary.simpleMessage(
                 "Let us know, where is the work location you want at this time, so we can adjust it."),
+        "Location": MessageLookupByLibrary.simpleMessage("Location "),
         "LogOut": MessageLookupByLibrary.simpleMessage("Log Out"),
         "LogOutOfYourAccount":
             MessageLookupByLibrary.simpleMessage("Log out of your account?"),
@@ -185,6 +193,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Now who should drink the medicine? Donec feugiat massa mi, at hendrerit mauris rutrum at The customer is very important, the customer will be followed by the customer."),
         "NowHowShowDrinkInFact": MessageLookupByLibrary.simpleMessage(
             "Now who should drink the medicine? Donec feugiat massa mi, at hendrerit mauris rutrum at The customer is very important, the customer will be followed by the customer. In fact, even if it\'s advertising, it\'s important to have a cartoon employee. Now who should drink the medicine? Donec feugiat massa mi, at hendrerit mauris rutrum at"),
+        "OnSite": MessageLookupByLibrary.simpleMessage("OnSite"),
         "OnceYourApplicationHasReachedTheInterviewStageYouWillGetAMessageFromTheRecruiter":
             MessageLookupByLibrary.simpleMessage(
                 "Once your application has reached the interview stage, you will get a message from the recruiter."),
@@ -195,6 +204,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "OtherNotification":
             MessageLookupByLibrary.simpleMessage("Other notification"),
         "Others": MessageLookupByLibrary.simpleMessage("Others"),
+        "PartTime": MessageLookupByLibrary.simpleMessage("PartTime"),
         "Password": MessageLookupByLibrary.simpleMessage("Password"),
         "PasswordChangedSuccessfully": MessageLookupByLibrary.simpleMessage(
             "Password  changed  successfully!"),
@@ -230,12 +240,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "Register": MessageLookupByLibrary.simpleMessage("Register"),
         "Rejected": MessageLookupByLibrary.simpleMessage("Rejected"),
         "RememberMe": MessageLookupByLibrary.simpleMessage("Remember me"),
+        "Remote": MessageLookupByLibrary.simpleMessage("Remote"),
         "RemoteWork": MessageLookupByLibrary.simpleMessage("Remote Work"),
         "RequestPasswordReset":
             MessageLookupByLibrary.simpleMessage("Request password reset"),
         "Reset": MessageLookupByLibrary.simpleMessage("Reset"),
         "RestPassword": MessageLookupByLibrary.simpleMessage("Rest Password"),
         "Reviewed": MessageLookupByLibrary.simpleMessage("Reviewed"),
+        "Salary": MessageLookupByLibrary.simpleMessage("Salary"),
         "Save": MessageLookupByLibrary.simpleMessage("Save"),
         "Saved": MessageLookupByLibrary.simpleMessage("Saved,"),
         "SavedJobIsDeleted":
@@ -259,6 +271,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Spam": MessageLookupByLibrary.simpleMessage("Spam"),
         "StartBuilding": MessageLookupByLibrary.simpleMessage("start building"),
         "StartYear": MessageLookupByLibrary.simpleMessage("StartYear"),
+        "StartYearIsEmpty":
+            MessageLookupByLibrary.simpleMessage("Start year is required"),
         "SubTitleTOHelp": MessageLookupByLibrary.simpleMessage(
             "The customer is very important, the customer will be followed by the customer. Fusce ultricies mi enim, quis vulputate nibh faucibus at Maecenas is in front, whether he accepts or not, he flatters flatters. There is a pillow in front and a trigger porta vulputate. He wants to decorate the classroom and not to the ecological boundaries. The phase of the soft quiver before, in the ullamcorper the mass of the ullamcorper and I chat with Leo and let him be a lot of fun sometimes."),
         "SubTitleYourPrivacy1": MessageLookupByLibrary.simpleMessage(

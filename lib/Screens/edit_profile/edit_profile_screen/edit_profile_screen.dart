@@ -2,6 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:finalproject/Screens/home_screen/home_screen/home_screen.dart';
 import 'package:finalproject/Screens/home_screen/profile_screen/profile_screen/profile_screen.dart';
 import 'package:finalproject/Screens/slider_screen/extract_widget.dart';
+import 'package:finalproject/core/cash_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
@@ -37,7 +38,6 @@ class EditProfile extends StatelessWidget {
    String valueName='';
    String valueAddress='';
    String valueNumberPhone='';
-
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +143,7 @@ class EditProfile extends StatelessWidget {
                      padding:  EdgeInsets.only(top: 100.0.h),
                      child: Center(child: MainButton(buttonText: Text(S.of(context).Save), onPressed: (){
                        if (formKey.currentState!.validate()){
-
+                         CacheHelper.setCompletePortfolio(true);
                        EditProfileService().updateUserProfile(bio: valueBio.isEmpty?initialValueBio??valueBio:valueBio, address: valueAddress.isEmpty?initialValueAddress??valueAddress:valueAddress, mobile: valueNumberPhone.isEmpty?initialValueNumber??valueNumberPhone:valueNumberPhone);
                        ServiceUpdateName().updateName(valueName);
                          // reloadCallback();

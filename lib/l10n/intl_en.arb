@@ -240,9 +240,18 @@
   "SendCode": "Send Code",
   "NameIsLeast": "Name Is Least",
   "NameIsEmpty": "Name Is Empty",
-  "WorkFromOffice": "Work From Office"
-
-
-
+  "WorkFromOffice": "Work From Office",
+  "JobTitle": "Job Title",
+  "Location": "Location ",
+  "Salary": "Salary",
+  "JobType": "JobType",
+  "FullTime": "FullTime",
+  "Remote": "Remote",
+  "Contract": "Contract",
+  "PartTime": "PartTime",
+  "OnSite": "OnSite",
+  "InternShip": "InternShip",
+  "StartYearIsEmpty": "Start year is required",
+  "EndYearIsEmpty": "end year is required",
 
 }

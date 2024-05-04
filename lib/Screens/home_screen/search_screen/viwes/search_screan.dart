@@ -1,13 +1,11 @@
 import 'package:finalproject/Screens/home_screen/search_screen/viwes/dialogs/full_or_part_dialog_screen.dart';
 import 'package:finalproject/Screens/home_screen/search_screen/viwes/search_screen_filter.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../generated/l10n.dart';
 
@@ -15,10 +13,8 @@ import '../../component/custom_catogry.dart';
 
 import '../../component/custom_mini_filter_button.dart';
 
-import '../cubits/filter_cubit/filter_cubit.dart';
 import '../cubits/search_cubit/search_cubit.dart';
 
-import '../models/filter_model.dart';
 import '../models/search_model.dart';
 import 'dialogs/contarct_or_intern_dialog.dart';
 import 'dialogs/remote_or_onsite_dialog.dart';
@@ -32,7 +28,7 @@ bool outPutFullOrRemoteButton =
     (trueFullButton || trueOnSiteButton == true) ? true : false;
 
 class _SearchScreanState extends State<SearchScrean> {
-  TextEditingController _searchController = TextEditingController();
+  final TextEditingController _searchController = TextEditingController();
 
   List<String> popularSearches = ["Flutter", "Dart", "Widgets", "Mobile App"];
 
@@ -69,9 +65,8 @@ class _SearchScreanState extends State<SearchScrean> {
                       return TextField(
                         controller: textEditingController,
                         focusNode: focusNode,
-                        onSubmitted: (_) {
-                          context.read<SearchCubit>().fetchJobs();
-                          // Handle the submitted search query
+                        onSubmitted: (valueSearch) {
+                          context.read<SearchCubit>().fetchJobs(textEditingController.text);
                           recentSearches.add(textEditingController.text);
                         },
                         decoration: InputDecoration(
@@ -317,7 +312,7 @@ class _SearchScreanState extends State<SearchScrean> {
                         child: Padding(
                           padding: EdgeInsets.only(left: 20.0.w),
                           child: Row(
-                            children: [
+                            children: const [
                               Text('Feturing 120+jobs'),
                             ],
                           ),

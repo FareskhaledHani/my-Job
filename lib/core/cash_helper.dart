@@ -9,6 +9,11 @@ class CacheHelper {
   static const String _languageKey = 'language';
   static const String keyListBio = 'your_key';
   static const String _firstTime = 'firstTime';
+  static const String _name = 'name';
+  static const String _completePersonDetails = 'personDetails';
+  static const String _completeEducation = 'completeEducation';
+  static const String _completePortFolio = 'completePortfolio';
+  static const String _completeExperience = 'completeExperience';
   // static const String keyPassword = 'password';
 
   static Future<void> init() async {
@@ -25,10 +30,59 @@ class CacheHelper {
     await init();
     await _prefs.setString(_tokenKey, token);
   }
+  static String getName() {
+    return _prefs.getString(_name) ?? "";
+  }
+
+  static Future<void> setName(String name) async {
+    await init();
+    await _prefs.setString(_name, name);
+  }
 
   static Future removeLoginData() async {
     await _prefs.clear();
   }
+ ///////complete profile person details
+  static bool getCompletePersonDetails() {
+    return _prefs.getBool(_completePersonDetails) ?? false;
+  }
+
+  static Future<void> setCompletePersonDetails(bool portfolio) async {
+    await init();
+    await _prefs.setBool(_completePersonDetails, portfolio);
+  }
+  //////////////////////////////////////////////////////////////////////////////
+  /////////education
+  static bool getCompleteEducation() {
+    return _prefs.getBool(_completeEducation) ?? false;
+  }
+
+  static Future<void> setCompleteEducation(bool education) async {
+    await init();
+    await _prefs.setBool(_completeEducation, education);
+  }
+////////////////////////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////////////////////////////////
+  /////////portFolio
+  static bool getCompletePortfolio() {
+    return _prefs.getBool(_completePortFolio) ?? false;
+  }
+
+  static Future<void> setCompletePortfolio(bool portFolio) async {
+    await init();
+    await _prefs.setBool(_completePortFolio, portFolio);
+  }
+////////////////////////////////////////////////////////////////////////////////
+  /////////portFolio
+  static bool getCompleteExperience() {
+    return _prefs.getBool(_completeExperience) ?? false;
+  }
+
+  static Future<void> setCompleteExperience(bool experience) async {
+    await init();
+    await _prefs.setBool(_completeExperience, experience);
+  }
+////////////////////////////////////////////////////////////////////////////////
 
   static String getFirstTime() {
     return _prefs.getString(_firstTime) ?? "";
@@ -94,6 +148,25 @@ class CacheHelper {
     Map<int, Map<String, dynamic>> map = await getList();
     map[newItemKey] = newItemValue;
     await saveList(map);
+  }
+  ///////////////////////////////////////////////////////////////////////////////
+ ////////////save education
+ static Future<void> setEducation(Map<String, String> map) async {
+    final encodedMap = map.map((key, value) => MapEntry(key, value.toString()));
+    await _prefs.setString('myMap', encodedMap.toString());
+  }
+
+// Retrieve map from SharedPreferences
+  static Future<Map<String, String>> getEducation() async {
+    final jsonString = _prefs.getString('myMap');
+    if (jsonString != null) {
+      final decodedMap = Map<String, String>.from(
+        Map<String, String>.from(json.decode(jsonString)),
+      );
+      return decodedMap;
+    } else {
+      return {}; // Return an empty map if no data is found
+    }
   }
 
 }

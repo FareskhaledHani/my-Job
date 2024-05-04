@@ -2137,6 +2137,126 @@ class S {
       args: [],
     );
   }
+
+  /// `Job Title`
+  String get JobTitle {
+    return Intl.message(
+      'Job Title',
+      name: 'JobTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Location `
+  String get Location {
+    return Intl.message(
+      'Location ',
+      name: 'Location',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Salary`
+  String get Salary {
+    return Intl.message(
+      'Salary',
+      name: 'Salary',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `JobType`
+  String get JobType {
+    return Intl.message(
+      'JobType',
+      name: 'JobType',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `FullTime`
+  String get FullTime {
+    return Intl.message(
+      'FullTime',
+      name: 'FullTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Remote`
+  String get Remote {
+    return Intl.message(
+      'Remote',
+      name: 'Remote',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Contract`
+  String get Contract {
+    return Intl.message(
+      'Contract',
+      name: 'Contract',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `PartTime`
+  String get PartTime {
+    return Intl.message(
+      'PartTime',
+      name: 'PartTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OnSite`
+  String get OnSite {
+    return Intl.message(
+      'OnSite',
+      name: 'OnSite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `InternShip`
+  String get InternShip {
+    return Intl.message(
+      'InternShip',
+      name: 'InternShip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Start year is required`
+  String get StartYearIsEmpty {
+    return Intl.message(
+      'Start year is required',
+      name: 'StartYearIsEmpty',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `end year is required`
+  String get EndYearIsEmpty {
+    return Intl.message(
+      'end year is required',
+      name: 'EndYearIsEmpty',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

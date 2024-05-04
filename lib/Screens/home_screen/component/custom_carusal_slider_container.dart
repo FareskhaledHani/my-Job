@@ -1,12 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:finalproject/Screens/home_screen/home_screen/models/suggestion_job.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
+import '../../../generated/l10n.dart';
 import '../../job_details/screen/job_details_screan.dart';
 import '../../job_details/services/job_details_service.dart';
 import '../home_screen/cubit/icon_cubit/icon_cubit.dart';
@@ -33,7 +33,13 @@ class CustomCarouselSlider extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return const CircularProgressIndicator();
         } else if (snapshot.hasError) {
-          return Text('Error: ${snapshot.error}');
+          return Column(
+            children: [
+              const Icon(FontAwesomeIcons.triangleExclamation,color: Colors.red),
+              SizedBox(height: 20.h),
+              Text(S.of(context).PleaseCheckYourNetworkAndTryAgain)
+            ],
+          );
         } else {
           final suggestionJob = snapshot.data!;
           return BlocProvider(
@@ -66,10 +72,18 @@ class CustomCarouselSlider extends StatelessWidget {
                                 Row(
                                   mainAxisSize: MainAxisSize.min,
                                   children: [
-                                    Image.network(
-                                        width: 40.w,
-                                        height: 40.h,
-                                        suggestionJob.image),
+                                    Container(
+                                      width: 50.w,height: 40.h,
+                                      decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                              image: NetworkImage(suggestionJob.image),
+                                              fit: BoxFit.fill
+                                          ),
+                                          color: Colors.orange,
+                                          borderRadius: BorderRadius.circular(10)
+                                      ),
+
+                                    ),
                                     SizedBox(width: 15.w),
                                     Column(
                                       crossAxisAlignment:
@@ -148,17 +162,16 @@ class CustomCarouselSlider extends StatelessWidget {
                                             fontWeight: FontWeight.w500,
                                             color: Colors.white),
                                       ),
-                                      const TextSpan(
-                                        text: "/month",
+                                       TextSpan(
+                                        text: '/${S.of(context).Month}',
                                         style: TextStyle(
-                                            fontSize: 10,
+                                            fontSize: 12.sp,
                                             fontWeight: FontWeight.w500,
                                             color: Colors.grey),
                                       )
                                     ])),
                                 ElevatedButton(
                                   onPressed: () {},
-                                  child: Text('ApplyNow'),
                                   style: ButtonStyle(
                                       shape: MaterialStateProperty.all<
                                           RoundedRectangleBorder>(
@@ -166,6 +179,7 @@ class CustomCarouselSlider extends StatelessWidget {
                                             borderRadius: BorderRadius.circular(
                                                 18.0),
                                           ))),
+                                  child:  Text(S.of(context).ApplyNow),
                                 )
                               ],
                             ),

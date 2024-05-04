@@ -13,6 +13,7 @@ import '../../../../components/custum_title_text.dart';
 import '../../../../constant/constants.dart';
 import '../../../../generated/l10n.dart';
 import '../../../compleated_profile/screens/complet_profile/complete_profile.dart';
+import '../../../compleated_profile/screens/education_screen/education_screen.dart';
 import '../../../edit_profile/edit_profile_screen/edit_profile_screen.dart';
 import '../../../help_center_screen/help_center_screen/help_center_screen.dart';
 import '../../../language_screen/language_screen/language_screen.dart';
@@ -275,7 +276,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           CustomListTileProfile(
                             title: S.of(context).Language,
                             onpress: () {
-                              Get.to(() => LanguageScreen());
+                              Get.to(() => const LanguageScreen());
                             },
                             icon: Ionicons.globe,
                           ),
@@ -287,7 +288,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           CustomListTileProfile(
                             title: S.of(context).Notification,
                             onpress: () {
-                              Get.to(() => NotificationScreen());
+                              Get.to(() => const NotificationScreen());
                             },
                             icon: FontAwesomeIcons.bell,
                           ),
@@ -307,6 +308,18 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             thickness: 1,
                             indent: 20,
                             endIndent: 30,
+                          ),
+                          CustomListTileProfile(
+                            title: S.of(context).CompleteProfile,
+                            onpress: () {
+                              Get.to(()=>CompleteProfile());
+                            },
+                            icon: Icons.lock_outlined,
+                          ),
+                          const Divider(
+                            thickness: 1,
+                            indent: 20,
+                            endIndent: 30,
                           )
                         ],
                       ),
@@ -317,93 +330,94 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20).h,
-                    child: Container(
-                      child: Column(
-                        children: [
-                          ListTile(
-                            onTap: () {
-                              Get.to(
-                                () => ColorChangeContainerWidget(),
-                              );
-                            },
+                    child: Column(
+                      children: [
+                        ListTile(
+                          onTap: () {
+                            Get.to(
+                              () => CompleteProfile(),
+                            );
+                          },
 
-                            // onTap: (){Get.to(()=> ColorChangeContainerWidget(colorSelect1: null,));},
-                            title: Text(S.of(context).Accessibility),
-                            trailing: IconButton(
-                              icon: Icon(
-                                Icons.arrow_forward_rounded,
-                                size: 20.sp,
-                                color: Colors.black,
-                              ),
-                              onPressed: () {},
+                          // onTap: (){Get.to(()=> ColorChangeContainerWidget(colorSelect1: null,));},
+                          title: Text(S.of(context).Accessibility),
+                          trailing: IconButton(
+                            icon: Icon(
+                              Icons.arrow_forward_rounded,
+                              size: 20.sp,
+                              color: Colors.black,
                             ),
+                            onPressed: () {},
                           ),
-                          const Divider(
-                            thickness: 1,
-                            indent: 20,
-                            endIndent: 30,
-                          ),
-                          ListTile(
-                            onTap: () {
-                              Get.to(
-                                () => const HelpCenterScreen(),
-                              );
-                            },
-                            title: Text(S.of(context).HelpCenter),
-                            trailing: IconButton(
-                              icon: Icon(
-                                Icons.arrow_forward_rounded,
-                                size: 20.sp,
-                                color: Colors.black,
-                              ),
-                              onPressed: () {},
+                        ),
+                        const Divider(
+                          thickness: 1,
+                          indent: 20,
+                          endIndent: 30,
+                        ),
+                        ListTile(
+                          onTap: () {
+                            Get.to(
+                              () => const HelpCenterScreen(),
+                            );
+                          },
+                          title: Text(S.of(context).HelpCenter),
+                          trailing: IconButton(
+                            icon: Icon(
+                              Icons.arrow_forward_rounded,
+                              size: 20.sp,
+                              color: Colors.black,
                             ),
+                            onPressed: () {},
                           ),
-                          const Divider(
-                            thickness: 1,
-                            indent: 20,
-                            endIndent: 30,
-                          ),
-                          ListTile(
-                            title: Text(S.of(context).TermsConditions),
-                            onTap: () {
-                              Get.to(() => const TermsAndConditions());
-                            },
-                            trailing: IconButton(
-                              icon: Icon(
-                                Icons.arrow_forward_rounded,
-                                size: 20.sp,
-                                color: Colors.black,
-                              ),
-                              onPressed: () {},
+                        ),
+                        const Divider(
+                          thickness: 1,
+                          indent: 20,
+                          endIndent: 30,
+                        ),
+                        ListTile(
+                          title: Text(S.of(context).TermsConditions),
+                          onTap: () {
+                            Get.to(() => const TermsAndConditions());
+                          },
+                          trailing: IconButton(
+                            icon: Icon(
+                              Icons.arrow_forward_rounded,
+                              size: 20.sp,
+                              color: Colors.black,
                             ),
+                            onPressed: () {},
                           ),
-                          const Divider(
-                            thickness: 1,
-                            indent: 20,
-                            endIndent: 30,
-                          ),
-                          ListTile(
-                            onTap: () {
-                              Get.to(() => const PrivacyPolicy());
-                            },
-                            title: Text(S.of(context).PrivacyPolicy),
-                            trailing: IconButton(
-                              icon: Icon(
-                                Icons.arrow_forward_rounded,
-                                size: 20.sp,
-                                color: Colors.black,
-                              ),
-                              onPressed: () {},
+                        ),
+                        const Divider(
+                          thickness: 1,
+                          indent: 20,
+                          endIndent: 30,
+                        ),
+                        ListTile(
+                          onTap: () {
+                            Get.to(() => const
+                            //Education()
+                           PrivacyPolicy()
+                            );
+                          },
+                          title: Text(S.of(context).PrivacyPolicy),
+                          trailing: IconButton(
+                            icon: Icon(
+                              Icons.arrow_forward_rounded,
+                              size: 20.sp,
+                              color: Colors.black,
                             ),
+                            onPressed: () {},
                           ),
-                          const Divider(
-                            thickness: 1,
-                            indent: 20,
-                            endIndent: 30,
-                          )
-                        ],
-                      ),
+                        ),
+                        const Divider(
+                          thickness: 1,
+                          indent: 20,
+                          endIndent: 30,
+                        )
+                      ],
                     ),
                   )
                 ],

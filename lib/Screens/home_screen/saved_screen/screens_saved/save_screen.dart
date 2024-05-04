@@ -61,8 +61,8 @@ class _SaveScreenState extends State<SaveScreen> {
           backgroundColor: Colors.white,
           title: Text(
             S.of(context).Save,
-            style: const TextStyle(
-                fontWeight: FontWeight.w500, fontSize: 20, color: Colors.black),
+            style:  TextStyle(
+                fontWeight: FontWeight.w500, fontSize: 22.sp, color: Colors.black),
           ),
           elevation: 0,
         ),

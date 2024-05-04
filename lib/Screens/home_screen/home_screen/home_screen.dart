@@ -1,33 +1,28 @@
 import 'package:finalproject/Screens/job_details/models/card_employees_model.dart';
-import 'package:ionicons/ionicons.dart';
 import 'package:finalproject/Screens/home_screen/home_screen/models/suggestion_job.dart';
 import 'package:finalproject/Screens/home_screen/home_screen/service/services.dart';
 import 'package:finalproject/Screens/home_screen/search_screen/viwes/search_screan.dart';
 import 'package:finalproject/models/catogry_model.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import '../../../components/custum_job_type_box.dart';
-import '../../../components/custum_search_box.dart';
 import '../../../core/cash_helper.dart';
 import '../../../generated/l10n.dart';
-import '../../job_details/screen/job_details_screan.dart';
 import '../../job_details/services/job_details_service.dart';
 import '../component/custom_container_search_button.dart';
 import '../component/custum_widget.dart';
-
 import '../component/custom_carusal_slider_container.dart';
 import '../notification_screen/notification_screen/notification_screen.dart';
+import '../profile_screen/models/profile_model.dart';
+import '../profile_screen/service/profile_service.dart';
 import '../saved_screen/cubits_fav/post_favorite_cubit/post_favorite_cubit.dart';
 
 SugesstionJobModel? sugesstionJobModel;
 
 class HomeScreen extends StatefulWidget {
-  HomeScreen({Key? key}) : super(key: key);
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -38,6 +33,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ApiServices apiServices = ApiServices();
   PostFavoriteService postFavoriteService =PostFavoriteService();
   JobDetailsServices jobDetailsServices =JobDetailsServices();
+  ProfileService profileService =ProfileService();
   JobDetailsModel ?jobDetailsModel ;
 
   // List<SugesstionJobModel>suggestionJob=[];
@@ -58,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(20.0).r,
+          padding: EdgeInsets.all(20.0.sp),
           child: Column(
             children: [
               SizedBox(
@@ -70,12 +66,28 @@ class _HomeScreenState extends State<HomeScreen> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          '${S.of(context).hi}, Rafif Dian👋',
-                          style: const TextStyle(
-                              fontSize: 24, fontWeight: FontWeight.w500),
+                        FutureBuilder<ProfileName>(
+                          future: profileService.profileService(),
+                          builder: (BuildContext context,  snapshot) {
+                            if (snapshot.connectionState == ConnectionState.waiting) {
+                              return const Center(child: SizedBox());
+                            } else
+                            if (snapshot.hasError) {
+                              return Text(
+                                '${S.of(context).hi}${CacheHelper.getName()} 👋',
+                                style:  TextStyle(
+                                    fontSize: 28.sp, fontWeight: FontWeight.w500),
+                              );
+                            } else {
+                             final String name = snapshot.data!.name;
+                             CacheHelper.setName(name);
+                              return Text(
+                                '${S.of(context).hi}$name 👋',
+                                style: TextStyle(
+                                    fontSize: 28.sp, fontWeight: FontWeight.w500),
+                              );}
+                          },
                         ),
-                        //  Image.asset('images/home_screen/Notification.png')
                         GestureDetector(
                           onTap: () {
                             Get.to(() => const NotificationScreen());
@@ -156,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
               CustomCarouselSlider(
                 apiServices: apiServices, postFavoriteService: postFavoriteService, jobDetailsServices: jobDetailsServices,
               ),
-              //custum_carousal_slider(buttonCarouselController: buttonCarouselController),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -173,10 +185,10 @@ class _HomeScreenState extends State<HomeScreen> {
               Expanded(
                 child: SizedBox(
                   child: ListView.builder(
-                    itemCount: Categories.length,
+                    itemCount: categories.length,
                     itemBuilder: (BuildContext context, index) {
                       return CatogryCard(
-                        Category: Categories[index],
+                        Category: categories[index],
                       );
                     },
                   ),
@@ -191,7 +203,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-List<CatogryModel> Categories = [
+List<CatogryModel> categories = [
   CatogryModel(
       Icon: FontAwesomeIcons.bookmark,
       descriptionJob: 'Twitter • Jakarta, Indonesia ',
@@ -235,7 +247,7 @@ class CatogryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: 104.h,
       width: 380.w,
       child: Column(

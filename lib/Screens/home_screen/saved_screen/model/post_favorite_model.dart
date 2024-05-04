@@ -22,22 +22,4 @@ class PostModelJobFavorite {
     };
   }
 }
-// Dart class representing the API response
-// class JobsFavoriteResponse {
-//   final bool status;
-//   final List<Job> data;
-//
-//   JobsFavoriteResponse({required this.status, required this.data});
-//
-//   factory JobsFavoriteResponse.fromJson(Map<String, dynamic> json) {
-//     List<Job> jobsList = [];
-//
-//     if (json['status'] == true && json['data'] != null) {
-//       json['data'].forEach((jobData) {
-//         jobsList.add(Job.fromJson(jobData));
-//       });
-//     }
-//
-//     return JobsFavoriteResponse(status: json['status'], data: jobsList);
-//   }
-// }
+
