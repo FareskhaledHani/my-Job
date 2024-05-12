@@ -2257,6 +2257,76 @@ class S {
       args: [],
     );
   }
+
+  /// `Experience`
+  String get Experience {
+    return Intl.message(
+      'Experience',
+      name: 'Experience',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `position *`
+  String get Position {
+    return Intl.message(
+      'position *',
+      name: 'Position',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Company Name *`
+  String get CompanyName {
+    return Intl.message(
+      'Company Name *',
+      name: 'CompanyName',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `I am currently working in this role`
+  String get IAmCurrentlyWorkingInThisRole {
+    return Intl.message(
+      'I am currently working in this role',
+      name: 'IAmCurrentlyWorkingInThisRole',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `subTitle`
+  String get SubTitle {
+    return Intl.message(
+      'subTitle',
+      name: 'SubTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Create your portfolio. Applying for various types of jobs is easier.`
+  String get CreateYourPortFolioApplyingForVariousTypesOfJobsIsEasier {
+    return Intl.message(
+      'Create your portfolio. Applying for various types of jobs is easier.',
+      name: 'CreateYourPortFolioApplyingForVariousTypesOfJobsIsEasier',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Your CV `
+  String get YourCv {
+    return Intl.message(
+      'Your CV ',
+      name: 'YourCv',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -15,7 +15,6 @@ class FilterCubit extends Cubit<FilterState> {
   Future<void> fetchFilterJobs( String name)async {
     emit(GetFilterJobLoadingState());
     try {
-
       Response response = await dio.post(
         url,
         options: Options(

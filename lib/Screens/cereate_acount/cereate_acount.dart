@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import '../../components/custom_field_with_perfix_icon.dart';
 import '../../components/custom_line_divider_text.dart';
 import '../../components/custom_text_field_with_controller.dart';
 import '../../components/custum_sighn_with_google_Facebook.dart';
@@ -87,27 +88,14 @@ class CreateAccount extends StatelessWidget {
                       children: [
                         Padding(
                           padding: EdgeInsets.only(top: 40.0.h),
-                          child: TextFormField(
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return S.of(context).NameIsEmpty;
-                              } else if (value.length < 3 ) {
-                                return S.of(context).NameIsLeast;
-                              }
-                              return null;
-                            },
-                            controller: _userNameController,
-                            onTap: () => MyControooller.changeButtonColor(),
-                            decoration: InputDecoration(
-                              hintText: S.of(context).UserName,
-                              prefixIcon: const Icon(Icons.person),
-                              border: const OutlineInputBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10),
-                                ),
-                              ),
-                            ),
-                          ),
+                          child: CustomFieldWithPrefixIcon(validator: (value) {
+                            if (value!.isEmpty) {
+                              return S.of(context).NameIsEmpty;
+                            } else if (value.length < 3 ) {
+                              return S.of(context).NameIsLeast;
+                            }
+                            return null;
+                          }, controller: _userNameController, hintText: S.of(context).UserName, prefixIcon: const Icon(Icons.person), onTap: () {  },),
                         ),
                         SizedBox(height: 10.h),
                         TextFormField(
@@ -216,3 +204,5 @@ class CreateAccount extends StatelessWidget {
     );
   }
 }
+
+

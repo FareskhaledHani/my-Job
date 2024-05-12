@@ -1,13 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class AppBarThreeWidget extends StatelessWidget {
  const AppBarThreeWidget({
-    Key? key,required this.onpressed,required this.Tilte,
+    Key? key,required this.onPressed,required this.title,
   }) : super(key: key);
- final VoidCallback onpressed;
- final String Tilte;
+ final VoidCallback onPressed;
+ final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +15,9 @@ class AppBarThreeWidget extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          IconButton(onPressed:onpressed, icon:Icon(Icons.arrow_back_rounded)),
-          Text('$Tilte',style: TextStyle(fontSize:25.sp ,fontWeight: FontWeight.w500),),
-          IconButton(onPressed: (){}, icon: Icon(Icons.save))
+          IconButton(onPressed:onPressed, icon:const Icon(Icons.arrow_back_rounded)),
+          Text(title,style: TextStyle(fontSize:25.sp ,fontWeight: FontWeight.w500),),
+          IconButton(onPressed: (){}, icon: const Icon(Icons.save))
         ],),
     );
   }

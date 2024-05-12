@@ -39,8 +39,8 @@ class JobDetailsScreen extends StatelessWidget {
                 return Column(
                   children: [
                     AppBarThreeWidget(
-                      Tilte: S.of(context).JobDetails,
-                      onpressed: () {
+                      title: S.of(context).JobDetails,
+                      onPressed: () {
                         Get.back();
                       },
                     ),

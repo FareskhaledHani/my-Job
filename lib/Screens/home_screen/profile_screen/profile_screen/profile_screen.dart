@@ -1,4 +1,3 @@
-import 'package:finalproject/Screens/chat_screen/chat_screen/show_dialog_screen.dart';
 import 'package:finalproject/Screens/home_screen/profile_screen/models/get_profile_model.dart';
 import 'package:finalproject/Screens/portfolio_screen/cubit_portFolio/post_portfolio_cubit/post_portfolio_cubit.dart';
 import 'package:finalproject/components/custum_subtitle_text.dart';
@@ -13,7 +12,6 @@ import '../../../../components/custum_title_text.dart';
 import '../../../../constant/constants.dart';
 import '../../../../generated/l10n.dart';
 import '../../../compleated_profile/screens/complet_profile/complete_profile.dart';
-import '../../../compleated_profile/screens/education_screen/education_screen.dart';
 import '../../../edit_profile/edit_profile_screen/edit_profile_screen.dart';
 import '../../../help_center_screen/help_center_screen/help_center_screen.dart';
 import '../../../language_screen/language_screen/language_screen.dart';
@@ -45,21 +43,28 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final GlobalKey<FormState>formKey=GlobalKey();
  final  TextEditingController passwordUpdate=TextEditingController();
   late String name;
-
+   ///////education
+  final TextEditingController universityTitleController = TextEditingController();
+  final TextEditingController titleController = TextEditingController();
+  final TextEditingController dateController2 = TextEditingController();
+  final TextEditingController dateController1 = TextEditingController();
+  final GlobalKey<FormState> educationKey = GlobalKey();
+  ///////experience
+  TextEditingController positionController = TextEditingController();
+  TextEditingController typeWorkController = TextEditingController();
+  TextEditingController companyNameController = TextEditingController();
+  TextEditingController locationController = TextEditingController();
+  TextEditingController startYearController = TextEditingController();
+  TextEditingController endYearController = TextEditingController();
+  GlobalKey<FormState>experienceKey=GlobalKey();
   @override
   void initState() {
     ProfileService().profileService();
     GetProfileService().getUserProfile();
-
   }
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       backgroundColor: Colors.white,
       appBar: AppBar(
         leading: IconButton(
@@ -231,98 +236,92 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 20).h,
-                    child: Container(
-                      child: Column(
-                        children: [
-                          CustomListTileProfile(
-                            title: S.of(context).EditProfile,
-                            onpress: () {
-                              Get.to(() => EditProfile(
-                                    initialValueName: name,
-                                    initialValueAddress: getProfileData.address,
-                                    formKey: formKeyEditProfile,
-                                    initialValueNumber: getProfileData.mobile,
-                                    initialValueBio: getProfileData.bio,
-                                reloadCallback: () {
-                                  getProfileService.getUserProfile();
-                                  Navigator.pop(context, true); // Pass true to indicate reload
-                                },
-                                  ));
-                            },
-                            icon: Icons.person_outline,
-                          ),
-                          const Divider(
-                            thickness: 1,
-                            indent: 20,
-                            endIndent: 30,
-                          ),
-                          CustomListTileProfile(
-                            title: S.of(context).PortFolio,
-                            onpress: () {
-                              Get.to(() => BlocProvider(
-                                    create: (context) => PostPortfolioCubit(),
-                                    child: PortfolioEdit(
-                                      // portfolio: getProfileData.portfolio,
-                                    ),
-                                  ));
-                            },
-                            icon: FontAwesomeIcons.folderClosed,
-                          ),
-                          const Divider(
-                            thickness: 1,
-                            indent: 20,
-                            endIndent: 30,
-                          ),
-                          CustomListTileProfile(
-                            title: S.of(context).Language,
-                            onpress: () {
-                              Get.to(() => const LanguageScreen());
-                            },
-                            icon: Ionicons.globe,
-                          ),
-                          const Divider(
-                            thickness: 1,
-                            indent: 20,
-                            endIndent: 30,
-                          ),
-                          CustomListTileProfile(
-                            title: S.of(context).Notification,
-                            onpress: () {
-                              Get.to(() => const NotificationScreen());
-                            },
-                            icon: FontAwesomeIcons.bell,
-                          ),
-                          const Divider(
-                            thickness: 1,
-                            indent: 20,
-                            endIndent: 30,
-                          ),
-                          CustomListTileProfile(
-                            title: S.of(context).LoginAndSecurity,
-                            onpress: () {
-                              Get.to(() =>  LoginAndSecurity(email: getProfileData.email, number:getProfileData.mobile.toString(), globalKey: globalKey, getProfileService: getProfileService, formKey: formKey, passwordUpdate: passwordUpdate,));
-                            },
-                            icon: Icons.lock_outlined,
-                          ),
-                          const Divider(
-                            thickness: 1,
-                            indent: 20,
-                            endIndent: 30,
-                          ),
-                          CustomListTileProfile(
-                            title: S.of(context).CompleteProfile,
-                            onpress: () {
-                              Get.to(()=>CompleteProfile());
-                            },
-                            icon: Icons.lock_outlined,
-                          ),
-                          const Divider(
-                            thickness: 1,
-                            indent: 20,
-                            endIndent: 30,
-                          )
-                        ],
-                      ),
+                    child: Column(
+                      children: [
+                        CustomListTileProfile(
+                          title: S.of(context).EditProfile,
+                          onpress: () {
+                            Get.to(() => EditProfile(
+                                  initialValueName: name,
+                                  initialValueAddress: getProfileData.address,
+                                  formKey: formKeyEditProfile,
+                                  initialValueNumber: getProfileData.mobile,
+                                  initialValueBio: getProfileData.bio,
+                              reloadCallback: () {
+                                getProfileService.getUserProfile();
+                                Navigator.pop(context, true); // Pass true to indicate reload
+                              },
+                                ));
+                          },
+                          icon: Icons.person_outline,
+                        ),
+                        const Divider(
+                          thickness: 1,
+                          indent: 20,
+                          endIndent: 30,
+                        ),
+                        CustomListTileProfile(
+                          title: S.of(context).PortFolio,
+                          onpress: () {
+                            Get.to(() => PortfolioEdit(
+                            ));
+                          },
+                          icon: FontAwesomeIcons.folderClosed,
+                        ),
+                        const Divider(
+                          thickness: 1,
+                          indent: 20,
+                          endIndent: 30,
+                        ),
+                        CustomListTileProfile(
+                          title: S.of(context).Language,
+                          onpress: () {
+                            Get.to(() => const LanguageScreen());
+                          },
+                          icon: Ionicons.globe,
+                        ),
+                        const Divider(
+                          thickness: 1,
+                          indent: 20,
+                          endIndent: 30,
+                        ),
+                        CustomListTileProfile(
+                          title: S.of(context).Notification,
+                          onpress: () {
+                            Get.to(() => const NotificationScreen());
+                          },
+                          icon: FontAwesomeIcons.bell,
+                        ),
+                        const Divider(
+                          thickness: 1,
+                          indent: 20,
+                          endIndent: 30,
+                        ),
+                        CustomListTileProfile(
+                          title: S.of(context).LoginAndSecurity,
+                          onpress: () {
+                            Get.to(() =>  LoginAndSecurity(email: getProfileData.email, number:getProfileData.mobile.toString(), globalKey: globalKey, getProfileService: getProfileService, formKey: formKey, passwordUpdate: passwordUpdate,));
+                          },
+                          icon: Icons.lock_outlined,
+                        ),
+                        const Divider(
+                          thickness: 1,
+                          indent: 20,
+                          endIndent: 30,
+                        ),
+                        CustomListTileProfile(
+                          title: S.of(context).CompleteProfile,
+                          onpress: () {
+                            Get.to(()=>CompleteProfile(dateController1: dateController1, titleController: titleController, educationKey: educationKey, universityTitleController: universityTitleController, dateController2: dateController2, startYearController: startYearController, companyNameController: companyNameController, experienceKey: experienceKey, endYearController: endYearController, typeWorkController: typeWorkController, locationController: locationController, positionController: positionController,));
+                          },
+                          icon: Icons.lock_outlined,
+                        ),
+                        const Divider(
+                          thickness: 1,
+                          indent: 20,
+                          endIndent: 30,
+                        )
+                      ],
                     ),
                   ),
                   TitleInContainer(
@@ -333,12 +332,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Column(
                       children: [
                         ListTile(
-                          onTap: () {
-                            Get.to(
-                              () => CompleteProfile(),
-                            );
-                          },
-
+                          onTap: () {},
                           // onTap: (){Get.to(()=> ColorChangeContainerWidget(colorSelect1: null,));},
                           title: Text(S.of(context).Accessibility),
                           trailing: IconButton(

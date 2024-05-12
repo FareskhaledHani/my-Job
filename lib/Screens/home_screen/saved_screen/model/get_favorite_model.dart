@@ -110,24 +110,3 @@ class JobsResponseFavorite {
 
 
 
-
-
-// Dart class representing the API response
-// class GetFavoriteJobResponse {
-//   final bool status;
-//   final List<GetFavoriteJob> data;
-//
-//   GetFavoriteJobResponse({required this.status, required this.data});
-//
-//   factory GetFavoriteJobResponse.fromJson(Map<String, dynamic> json) {
-//     List<GetFavoriteJob> getFavoriteJobsList = [];
-//
-//     if (json['status'] == true && json['data'] != null) {
-//       json['data']['jobs'].forEach((jobData) {
-//         getFavoriteJobsList.add(GetFavoriteJob.fromJson(jobData));
-//       });
-//     }
-//
-//     return GetFavoriteJobResponse(status: json['status'], data: getFavoriteJobsList);
-//   }
-// }

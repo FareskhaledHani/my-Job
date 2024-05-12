@@ -76,40 +76,40 @@ class IconNotification extends StatelessWidget {
     );
   }
 }
-  Widget MessagesList(
-      MessagesModel messagesCard,ontap
-      ){
-  return Container(
-    height: 81.h,
-    child:Column(
-      children: [
-        ListTile(
-          onTap: ontap,
-          leading:IconNotification(count: 2, image: messagesCard.imageLeading,),
-          title: Text(messagesCard.title),
-          subtitle: Text(messagesCard.subtitle,style: TextStyle(color:Color(0xff6B7280),fontSize: 12.sp,fontWeight: FontWeight.w400 ),),
-          trailing: Text('12.39',maxLines: 1,style: TextStyle(color:Colors.blue,fontSize: 12.sp,fontWeight: FontWeight.w400 ,overflow: TextOverflow.ellipsis),),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(left: 90).w,
-          child: const Divider(
-            thickness: 2,
-            height: 1,
-            endIndent: 20,
-            color: Color(0xffE5E7EB),
-          ),
-        )
-      ],
-    ) ,
-  );
-  }
-
-List<MessagesModel>messagesList=[
-  MessagesModel(title: 'FaceBook', imageLeading: 'images/home_screen/messages/Shoope Logo.png', subtitle: 'You: What about the interview stage?', trading: '09.45'),
-  MessagesModel(title: 'FaceBook', imageLeading: 'images/home_screen/messages/Shoope Logo.png', subtitle: 'You: What about the interview stage?', trading: '09.45'),
-  MessagesModel(title: 'FaceBook', imageLeading: 'images/home_screen/messages/Shoope Logo.png', subtitle: 'You: What about the interview stage?', trading: '09.45'),
-  MessagesModel(title: 'FaceBook', imageLeading: 'images/home_screen/messages/Shoope Logo.png', subtitle: 'You: What about the interview stage?', trading: '09.45'),
-  MessagesModel(title: 'FaceBook', imageLeading: 'images/home_screen/messages/Facebook Logo.png', subtitle: 'You: What about the interview stage?', trading: '09.45'),
-];
+//   Widget MessagesList(
+//       MessagesModel messagesCard,ontap
+//       ){
+//   return SizedBox(
+//     height: 81.h,
+//     child:Column(
+//       children: [
+//         ListTile(
+//           onTap: ontap,
+//           leading:IconNotification(count: 2, image: messagesCard.imageLeading,),
+//           title: Text(messagesCard.title),
+//           subtitle: Text(messagesCard.subtitle,style: TextStyle(color:Color(0xff6B7280),fontSize: 12.sp,fontWeight: FontWeight.w400 ),),
+//           trailing: Text('12.39',maxLines: 1,style: TextStyle(color:Colors.blue,fontSize: 12.sp,fontWeight: FontWeight.w400 ,overflow: TextOverflow.ellipsis),),
+//         ),
+//         Padding(
+//           padding: const EdgeInsets.only(left: 90).w,
+//           child: const Divider(
+//             thickness: 2,
+//             height: 1,
+//             endIndent: 20,
+//             color: Color(0xffE5E7EB),
+//           ),
+//         )
+//       ],
+//     ) ,
+//   );
+//   }
+//
+// List<MessagesModel>messagesList=[
+//   MessagesModel(title: 'FaceBook', imageLeading: 'images/home_screen/messages/Shoope Logo.png', subtitle: 'You: What about the interview stage?', trading: '09.45'),
+//   MessagesModel(title: 'FaceBook', imageLeading: 'images/home_screen/messages/Shoope Logo.png', subtitle: 'You: What about the interview stage?', trading: '09.45'),
+//   MessagesModel(title: 'FaceBook', imageLeading: 'images/home_screen/messages/Shoope Logo.png', subtitle: 'You: What about the interview stage?', trading: '09.45'),
+//   MessagesModel(title: 'FaceBook', imageLeading: 'images/home_screen/messages/Shoope Logo.png', subtitle: 'You: What about the interview stage?', trading: '09.45'),
+//   MessagesModel(title: 'FaceBook', imageLeading: 'images/home_screen/messages/Facebook Logo.png', subtitle: 'You: What about the interview stage?', trading: '09.45'),
+// ];
 
 

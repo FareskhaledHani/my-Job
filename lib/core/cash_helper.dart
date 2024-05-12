@@ -14,11 +14,11 @@ class CacheHelper {
   static const String _completeEducation = 'completeEducation';
   static const String _completePortFolio = 'completePortfolio';
   static const String _completeExperience = 'completeExperience';
+
   // static const String keyPassword = 'password';
 
   static Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
-
   }
 
 
@@ -30,6 +30,7 @@ class CacheHelper {
     await init();
     await _prefs.setString(_tokenKey, token);
   }
+
   static String getName() {
     return _prefs.getString(_name) ?? "";
   }
@@ -42,7 +43,8 @@ class CacheHelper {
   static Future removeLoginData() async {
     await _prefs.clear();
   }
- ///////complete profile person details
+
+  ///////complete profile person details
   static bool getCompletePersonDetails() {
     return _prefs.getBool(_completePersonDetails) ?? false;
   }
@@ -51,6 +53,7 @@ class CacheHelper {
     await init();
     await _prefs.setBool(_completePersonDetails, portfolio);
   }
+
   //////////////////////////////////////////////////////////////////////////////
   /////////education
   static bool getCompleteEducation() {
@@ -61,6 +64,7 @@ class CacheHelper {
     await init();
     await _prefs.setBool(_completeEducation, education);
   }
+
 ////////////////////////////////////////////////////////////////////////////////
   //////////////////////////////////////////////////////////////////////////////
   /////////portFolio
@@ -72,6 +76,7 @@ class CacheHelper {
     await init();
     await _prefs.setBool(_completePortFolio, portFolio);
   }
+
 ////////////////////////////////////////////////////////////////////////////////
   /////////portFolio
   static bool getCompleteExperience() {
@@ -82,6 +87,7 @@ class CacheHelper {
     await init();
     await _prefs.setBool(_completeExperience, experience);
   }
+
 ////////////////////////////////////////////////////////////////////////////////
 
   static String getFirstTime() {
@@ -102,9 +108,11 @@ class CacheHelper {
     await init();
     await _prefs.setString(_languageKey, languageSelect);
   }
+
   static String getLanguage() {
     return _prefs.getString(_languageKey) ?? "en";
   }
+
   static Future<bool> savePassword(String key, String value) async {
     return await _prefs.setString(key, value);
   }
@@ -133,7 +141,8 @@ class CacheHelper {
   }
 
   // Method to save the updated list to shared preferences
-  static Future<void> saveList(Map<int, Map<String, dynamic>> updatedMap) async {
+  static Future<void> saveList(
+      Map<int, Map<String, dynamic>> updatedMap) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     Map<int, dynamic> serializedMap = {};
     updatedMap.forEach((key, value) {
@@ -144,30 +153,46 @@ class CacheHelper {
   }
 
   // Method to add a new item to the list in shared preferences
-  static Future<void> addItemToList(int newItemKey, Map<String, dynamic> newItemValue) async {
+  static Future<void> addItemToList(int newItemKey,
+      Map<String, dynamic> newItemValue) async {
     Map<int, Map<String, dynamic>> map = await getList();
     map[newItemKey] = newItemValue;
     await saveList(map);
   }
+
   ///////////////////////////////////////////////////////////////////////////////
- ////////////save education
- static Future<void> setEducation(Map<String, String> map) async {
-    final encodedMap = map.map((key, value) => MapEntry(key, value.toString()));
-    await _prefs.setString('myMap', encodedMap.toString());
+  ////////////save education
+  static Future<void> setEducation(Map<String, String> map) async {
+    final jsonString = json.encode(map);
+    await _prefs.setString('myMap', jsonString);
   }
 
-// Retrieve map from SharedPreferences
-  static Future<Map<String, String>> getEducation() async {
+// Retrieve a value from the saved Map in SharedPreferences using a key
+  static Future<String?> getEducation(String key) async {
     final jsonString = _prefs.getString('myMap');
     if (jsonString != null) {
-      final decodedMap = Map<String, String>.from(
-        Map<String, String>.from(json.decode(jsonString)),
-      );
-      return decodedMap;
-    } else {
-      return {}; // Return an empty map if no data is found
+      final map = json.decode(jsonString);
+      return map[key];
     }
+    return null; // Return null if the key or map is not found
+
+  }
+//CacheHelper.getPassword('PasswordKey')
+//////////////////////set education bool
+  static Future<void> setExperience(Map<String, String> map) async {
+    final jsonString = json.encode(map);
+    await _prefs.setString('myMap', jsonString);
+  }
+
+// Retrieve a value from the saved Map in SharedPreferences using a key
+  static Future<String?> getExperience(String key) async {
+    final jsonString = _prefs.getString('myMap');
+    if (jsonString != null) {
+      final map = json.decode(jsonString);
+      return map[key];
+    }
+    return null; // Return null if the key or map is not found
+
   }
 
 }
-//CacheHelper.getPassword('PasswordKey');

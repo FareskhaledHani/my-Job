@@ -11,7 +11,8 @@ import '../../../generated/l10n.dart';
 import '../../home_screen/constant.dart';
 
 class ChatScreen extends StatelessWidget {
-  const ChatScreen({Key? key}) : super(key: key);
+  const ChatScreen({Key? key, required this.title}) : super(key: key);
+ final String title;
 
   @override
   Widget build(BuildContext context) {
@@ -19,23 +20,24 @@ class ChatScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         toolbarHeight: 80,
-       titleTextStyle: TextStyle(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.black),
+       titleTextStyle: const TextStyle(fontWeight: FontWeight.w500,fontSize: 14,color: Colors.black),
         leadingWidth: 40.w,
         foregroundColor: Colors.black,
         backgroundColor: Colors.white,
-        title: Row(children: [ CircleAvatar(
-          child: Image.asset(
-            'images/home_screen/messages/Facebook Logo.png',scale: 1.4,), minRadius: 0,
+        title: Row(children: [  CircleAvatar(
+          maxRadius: 20.sp,minRadius:20.sp,
+          backgroundImage: const NetworkImage(
+            'https://project2.amit-learning.com/image/1694106084.test.jpg'),
         ), SizedBox(
           width: 15.w,
         ),
           Text(
-            'Twitter',
-            style: TextStyle(fontWeight: FontWeight.bold),
+            title,
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),],),
         actions: [IconButton(
             onPressed: () {ShowDialogScreen(context);},
-            icon: Icon(Ionicons.ellipsis_horizontal_outline,)),],
+            icon: const Icon(Ionicons.ellipsis_horizontal_outline,)),],
       ),
       body: SafeArea(
         child: Column(
@@ -54,7 +56,7 @@ class ChatScreen extends StatelessWidget {
                           color: Colors.grey,
                           borderRadius: BorderRadius.only(topRight:Radius.circular(10),bottomLeft: Radius.circular(10),bottomRight: Radius.circular(10))
                       ),
-                      child: Text('jkdhkjsjkdhkjsjkdhkjsjkdhkjsjkdhkjs       dhkjh  dhkjh  dhkjh  dhkjh  dhkjh  dhkjh'),
+                      child: Text(' kjh  dhkjh  dhkjh  dhkjh  dhkjh'),
                     ),
                   );
                 },

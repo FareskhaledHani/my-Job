@@ -1,20 +1,20 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class FieldUsedInDate extends StatelessWidget {
-  FieldUsedInDate({
+  const FieldUsedInDate({
     required this.controller,
     required this.onPressed,
     required this.validator,
     Key? key,
   }) : super(key: key);
-  VoidCallback onPressed;
-  TextEditingController controller;
+  final VoidCallback onPressed;
+ final  TextEditingController controller;
   final String? Function(String?)? validator;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+        readOnly: true,
       validator: validator,
         controller: controller,
         decoration: InputDecoration(

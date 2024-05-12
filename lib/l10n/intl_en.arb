@@ -253,5 +253,12 @@
   "InternShip": "InternShip",
   "StartYearIsEmpty": "Start year is required",
   "EndYearIsEmpty": "end year is required",
+  "Experience": "Experience",
+  "Position": "position *",
+  "CompanyName": "Company Name *",
+  "IAmCurrentlyWorkingInThisRole": "I am currently working in this role",
+  "SubTitle": "subTitle",
+  "CreateYourPortFolioApplyingForVariousTypesOfJobsIsEasier": "Create your portfolio. Applying for various types of jobs is easier.",
+  "YourCv": "Your CV "
 
 }

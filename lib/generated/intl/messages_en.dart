@@ -62,6 +62,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Check Your Password please"),
         "ChoiceForTheJob":
             MessageLookupByLibrary.simpleMessage("choice for the job"),
+        "CompanyName": MessageLookupByLibrary.simpleMessage("Company Name *"),
         "CompleteProfile":
             MessageLookupByLibrary.simpleMessage("Complete Profile"),
         "CompleteYourProfileBeforeApplyingForAJob":
@@ -79,6 +80,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "CreateAccount": MessageLookupByLibrary.simpleMessage("Create Account"),
         "CreateNewPassword":
             MessageLookupByLibrary.simpleMessage("Create new password"),
+        "CreateYourPortFolioApplyingForVariousTypesOfJobsIsEasier":
+            MessageLookupByLibrary.simpleMessage(
+                "Create your portfolio. Applying for various types of jobs is easier."),
         "DeleteConversation":
             MessageLookupByLibrary.simpleMessage("Delete conversation"),
         "DontHaveAnAccount":
@@ -105,6 +109,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Enter your search query"),
         "ErrorIsHappened": MessageLookupByLibrary.simpleMessage(
             "Error is happened please try again or check your network"),
+        "Experience": MessageLookupByLibrary.simpleMessage("Experience"),
         "ExploreOver25924AvailableJobRolesAndUpgradeYourOperatorNow":
             MessageLookupByLibrary.simpleMessage(
                 "Explore over 25,924 available job roles and upgrade your operator now."),
@@ -128,6 +133,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "Home": MessageLookupByLibrary.simpleMessage("Home"),
         "HundredsOfJobsAreWaitingForYou": MessageLookupByLibrary.simpleMessage(
             "Hundreds of jobs are waiting for you"),
+        "IAmCurrentlyWorkingInThisRole": MessageLookupByLibrary.simpleMessage(
+            "I am currently working in this role"),
         "IfThereIsAnApplicationThatIsRejectedByTheCompanyItWillAppearHere":
             MessageLookupByLibrary.simpleMessage(
                 "If there is an application that is rejected by the company it will appear here"),
@@ -229,6 +236,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "PleaseLoginToFindYourDreamJob": MessageLookupByLibrary.simpleMessage(
             "Please login to find your dream job"),
         "PortFolio": MessageLookupByLibrary.simpleMessage("porFolio"),
+        "Position": MessageLookupByLibrary.simpleMessage("position *"),
         "PressTheStarIconOnTheJobYouWantToSave":
             MessageLookupByLibrary.simpleMessage(
                 "Press the star icon on the job you want to save"),
@@ -273,6 +281,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "StartYear": MessageLookupByLibrary.simpleMessage("StartYear"),
         "StartYearIsEmpty":
             MessageLookupByLibrary.simpleMessage("Start year is required"),
+        "SubTitle": MessageLookupByLibrary.simpleMessage("subTitle"),
         "SubTitleTOHelp": MessageLookupByLibrary.simpleMessage(
             "The customer is very important, the customer will be followed by the customer. Fusce ultricies mi enim, quis vulputate nibh faucibus at Maecenas is in front, whether he accepts or not, he flatters flatters. There is a pillow in front and a trigger porta vulputate. He wants to decorate the classroom and not to the ecological boundaries. The phase of the soft quiver before, in the ullamcorper the mass of the ullamcorper and I chat with Leo and let him be a lot of fun sometimes."),
         "SubTitleYourPrivacy1": MessageLookupByLibrary.simpleMessage(
@@ -355,6 +364,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Your account has been set up!"),
         "YourCareerFromNowOn":
             MessageLookupByLibrary.simpleMessage("yourcareer from now on"),
+        "YourCv": MessageLookupByLibrary.simpleMessage("Your CV "),
         "YourDataHasBeenSuccessfullySent": MessageLookupByLibrary.simpleMessage(
             "Your data has been successfully sent"),
         "YourJobSearchAlert":
