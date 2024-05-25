@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../../components/custom_main_button.dart';
 import '../../generated/l10n.dart';
+import '../bottom_nav_bar/views/bottom_nav_bar_view.dart';
+import '../bottom_nav_bar/views/widgets/bottom_nav_bar_body.dart';
 
 class AccountSuccess extends StatelessWidget {
   const AccountSuccess({Key? key}) : super(key: key);
@@ -50,7 +54,7 @@ class AccountSuccess extends StatelessWidget {
                      child: Align(
                        alignment: Alignment.bottomCenter,
                          child: MainButton(buttonText:Text( S.of(context).GetStarted), onPressed:(){
-
+                           Get.to((const BottomNavBar()));
                          })))
               ],
             ),

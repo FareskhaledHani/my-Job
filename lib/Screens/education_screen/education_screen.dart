@@ -214,11 +214,11 @@ class BodyEducation extends StatelessWidget {
                               child: MainButton(
                                   buttonText: Text(S.of(context).Save),
                                   onPressed: () async {
-                                    if (educationKey.currentState
-                                            ?.validate() ==
-                                        true) {
-                                      await CacheHelper
-                                          .setCompleteEducation(true);
+                                    if (educationKey.currentState?.validate() == true)
+                                  { if (CacheHelper.getCompleteEducation()==false)
+                                    {await CacheHelper.setCompleteEducation(true);
+                                    await CacheHelper.incrementInt(1);}
+                                      print('===================${await CacheHelper.getInt()}');
                                       await CacheHelper.setEducation({
                                         'university':
                                             _universityTitleController.text,
@@ -227,7 +227,7 @@ class BodyEducation extends StatelessWidget {
                                         'end': _dateController2.text,
                                       });
                                       EditServiceEducation().updateEducationProfile(education: _universityTitleController.text);
-                                     Get.back();
+                                     Get.back();Get.back();
                                     }
                                   }))))
                 ],

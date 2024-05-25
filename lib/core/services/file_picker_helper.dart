@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:file_picker/file_picker.dart';
+import 'package:open_file/open_file.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FilePickerHelper {
@@ -92,5 +93,16 @@ class FilePickerHelper {
       files.map((file) => jsonEncode(file)).toList();
       _prefs.setStringList(_key, updatedEncodedFilesData);
     }
+  }
+  void openFile(PlatformFile file) {
+    OpenFile.open(file.path);
+    // final kb =file.size/1024;
+    // final mb =kb/1024;
+    // final fileSiiaze =mb>=1?'${mb.toStringAsFixed(2)}MB':'${kb.toStringAsFixed(100)}KB';
+    // setState((){
+    //   _fileTitle=file.name;
+    //   _fileSize=(file.size/1024).toString();
+    //   // _fileSize=fileSiiaze.toString();
+    // });
   }
 }

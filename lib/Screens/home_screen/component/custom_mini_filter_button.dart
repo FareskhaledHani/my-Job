@@ -19,7 +19,7 @@ class CustomMiniFilterButton extends StatelessWidget {
       onTap: onTap,
       child: Container(
         margin: EdgeInsets.symmetric(horizontal: 5.w),
-        padding: EdgeInsets.symmetric(horizontal: 10),
+        padding: EdgeInsets.symmetric(horizontal: 10.w),
         width: 130.w,
         decoration: BoxDecoration(
             color: colorButton,

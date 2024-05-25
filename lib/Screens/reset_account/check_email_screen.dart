@@ -40,7 +40,7 @@ class CheckEmailScreen extends StatelessWidget {
                 SizedBox(height: 250.h),
                 Row(
                   children: [
-                    MainButton(buttonText:S.of(context).OpenEmailApp, onPressed: (){
+                    MainButton(buttonText:Text(S.of(context).OpenEmailApp), onPressed: (){
                       Get.to(()=>CreateNwePasswordScreen());
                     }),
                   ],

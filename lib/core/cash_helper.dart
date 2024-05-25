@@ -192,7 +192,19 @@ class CacheHelper {
       return map[key];
     }
     return null; // Return null if the key or map is not found
-
   }
-
+  ////////////////////////ratio
+  static Future<void> storeInt(int valueRatio) async {
+    await _prefs.setInt('valueRatio', valueRatio);
+  }
+  static Future<int?> getInt() async {
+    return _prefs.getInt('valueRatio');
+  }
+  static Future<void> incrementInt(int amount) async {
+    int? currentValue = await getInt();
+    if (currentValue != null) {
+      int newValue = currentValue + amount;
+      await storeInt(newValue);
+    }
+  }
 }

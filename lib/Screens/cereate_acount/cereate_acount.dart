@@ -1,8 +1,8 @@
 import 'package:email_validator/email_validator.dart';
 import 'package:finalproject/Screens/cereate_acount/cubits/create_account_cubit.dart';
 import 'package:finalproject/Screens/hope_work_screen/screen/type_of_work.dart';
+import 'package:finalproject/Screens/login_screen/login_screen.dart';
 import 'package:finalproject/Screens/slider_screen/extract_widget.dart';
-import 'package:finalproject/Screens/cereate_acount/controller.dart';
 import 'package:finalproject/core/cash_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -16,7 +16,6 @@ import '../../generated/l10n.dart';
 import 'cubits/visiable_cubit/visable_cubit.dart';
 
 class CreateAccount extends StatelessWidget {
-  final MyControoller MyControooller = Get.put(MyControoller());
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _userNameController = TextEditingController();
@@ -161,7 +160,9 @@ class CreateAccount extends StatelessWidget {
                             color: Colors.grey),
                       ),
                       TextButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(const LoginScreen());
+                        },
                         child: Text(S.of(context).Login),
                       )
                     ],
@@ -182,7 +183,6 @@ class CreateAccount extends StatelessWidget {
                       fixedSize: Size(MediaQuery.of(context).size.width, 50.w),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(20)),
-                      primary: MyControooller.buttonColor.value,
                     ),
                     child: state is AuthLoading
                         ? const Center(

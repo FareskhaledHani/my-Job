@@ -57,8 +57,8 @@ class BioData extends StatelessWidget {
         padding:  EdgeInsets.symmetric(horizontal: 20.w,vertical: 10.h),
         child: Form(
           key: _form,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: ListView(
+
             children: [
               const CustumContainerBubleBio(),
               SizedBox(height: 40.h),
@@ -102,7 +102,7 @@ class BioData extends StatelessWidget {
                 height: 10.h,
               ),
               CustomFilterTextField(
-                iconSet: const Icon(Icons.person_outline),
+                iconSet: const Icon(Icons.phone_android_rounded),
                 controller: numberController,
                 validator: (value) {
                   if (value!.isEmpty) {
@@ -113,22 +113,18 @@ class BioData extends StatelessWidget {
                   return null;
                 },
               ),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: MainButton(
-                      buttonText: Text(S.of(context).Next),
-                      onPressed: () {
-                        if (_form.currentState?.validate() == true) {
-                          Get.to(() => TypeOfWork(
-                                email: emailController.toString(),
-                                name: nameController.toString(),
-                                number: numberController.toString(),
-                              ));
-                        }
-                      }),
-                ),
-              ),
+              SizedBox(height: 110.h),
+              MainButton(
+                  buttonText: Text(S.of(context).Next),
+                  onPressed: () {
+                    if (_form.currentState?.validate() == true) {
+                      Get.to(() => TypeOfWork(
+                            email: emailController.toString(),
+                            name: nameController.toString(),
+                            number: numberController.toString(),
+                          ));
+                    }
+                  }),
             ],
           ),
         ),

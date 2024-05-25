@@ -11,7 +11,6 @@ class LanguageScreen extends StatefulWidget {
   @override
   State<LanguageScreen> createState() => _LanguageScreenState();
 }
-
 class _LanguageScreenState extends State<LanguageScreen> {
   final List<Map<String, String>> languageList = [
     {'name': 'English', 'flag': 'images/flags/England.png', 'locale': 'en'},

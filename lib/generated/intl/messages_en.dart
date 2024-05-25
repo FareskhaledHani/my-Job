@@ -34,6 +34,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "AllMessage": MessageLookupByLibrary.simpleMessage("All Message"),
         "AlreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
+        "Any": MessageLookupByLibrary.simpleMessage("Any"),
         "Applied": MessageLookupByLibrary.simpleMessage("Applied"),
         "AppliedJob": MessageLookupByLibrary.simpleMessage("Applied Job"),
         "ApplyNow": MessageLookupByLibrary.simpleMessage("ApplyNow"),
@@ -52,6 +53,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "ChangePassword":
             MessageLookupByLibrary.simpleMessage("Change Password"),
         "ChangePhoto": MessageLookupByLibrary.simpleMessage("Change Photo"),
+        "CheckUploadCvAndOtherFile": MessageLookupByLibrary.simpleMessage(
+            "Check Upload Cv And Other File"),
         "CheckYourAccountOrNetwork": MessageLookupByLibrary.simpleMessage(
             "Check Your Account Or Your Network Please"),
         "CheckYourEmail":
@@ -133,6 +136,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "Home": MessageLookupByLibrary.simpleMessage("Home"),
         "HundredsOfJobsAreWaitingForYou": MessageLookupByLibrary.simpleMessage(
             "Hundreds of jobs are waiting for you"),
+        "Hybrid": MessageLookupByLibrary.simpleMessage("Hybrid"),
         "IAmCurrentlyWorkingInThisRole": MessageLookupByLibrary.simpleMessage(
             "I am currently working in this role"),
         "IfThereIsAnApplicationThatIsRejectedByTheCompanyItWillAppearHere":
@@ -235,6 +239,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Please create an account to find your dream job"),
         "PleaseLoginToFindYourDreamJob": MessageLookupByLibrary.simpleMessage(
             "Please login to find your dream job"),
+        "PopularSearches":
+            MessageLookupByLibrary.simpleMessage("Popular Searches"),
         "PortFolio": MessageLookupByLibrary.simpleMessage("porFolio"),
         "Position": MessageLookupByLibrary.simpleMessage("position *"),
         "PressTheStarIconOnTheJobYouWantToSave":

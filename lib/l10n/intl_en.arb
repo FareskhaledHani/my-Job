@@ -259,6 +259,11 @@
   "IAmCurrentlyWorkingInThisRole": "I am currently working in this role",
   "SubTitle": "subTitle",
   "CreateYourPortFolioApplyingForVariousTypesOfJobsIsEasier": "Create your portfolio. Applying for various types of jobs is easier.",
-  "YourCv": "Your CV "
+  "YourCv": "Your CV ",
+  "CheckUploadCvAndOtherFile": "Check Upload Cv And Other File",
+  "Any": "Any",
+  "Hybrid": "Hybrid",
+  "PopularSearches": "Popular Searches"
+
 
 }

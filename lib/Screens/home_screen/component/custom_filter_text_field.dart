@@ -15,6 +15,7 @@ class CustomFilterTextField extends StatelessWidget {
     return TextFormField(
       validator:validator ,
       controller: controller,
+
         // onChanged: onSubmitted,
         decoration: InputDecoration(
           prefixIcon:iconSet,

@@ -4,6 +4,8 @@ import 'package:finalproject/core/cash_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import '../../components/custom_empty_field_controller.dart';
 import '../../components/custom_field_with_perfix_icon.dart';
 import '../../components/custom_main_button.dart';
@@ -288,8 +290,12 @@ class BodyExperienceScreen extends StatelessWidget {
                                   child: MainButton(
                                       buttonText: Text(S.of(context).Save),
                                       onPressed: () async {
+                                        CacheHelper.setCompleteExperience(false);
                                         if (experienceKey.currentState?.validate()==true){
-                                          CacheHelper.setCompleteExperience(true);
+                                                        if (CacheHelper.getCompleteEducation()==false){
+                                                          CacheHelper.setCompleteExperience(true);
+                                                          await CacheHelper.incrementInt(1);
+                                                        }
                                           final modelExperience =
                                           ModelExperience(
                                               end: endYearController.text,
@@ -309,6 +315,7 @@ class BodyExperienceScreen extends StatelessWidget {
                                                 'startYear':startYearController.text,
                                                 'endYear':endYearController.text,
                                               });
+                                                        Get.back();Get.back();
                                         }
 
                                       }))));

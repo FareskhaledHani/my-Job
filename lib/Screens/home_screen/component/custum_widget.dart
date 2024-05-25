@@ -43,15 +43,16 @@ class IconNotification extends StatelessWidget {
   final int count;
   //final Function onTap;
   final String image ;
+ final VoidCallback onTap;
 
- const IconNotification({Key? key, required this.count, required this.image})
+ const IconNotification({Key? key, required this.count, required this.image, required this.onTap})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        IconCircle(icon:  Ionicons.notifications_outline, ontap: () {  },),
+        IconCircle(icon:  Ionicons.notifications_outline, ontap:onTap,),
         count > 0
             ? Positioned(
           top: 0,

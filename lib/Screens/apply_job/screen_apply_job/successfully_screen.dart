@@ -1,10 +1,7 @@
-import 'package:finalproject/Screens/slider_screen/extract_widget.dart';
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-
 import '../../../components/custom_main_button.dart';
 import '../../../generated/l10n.dart';
 import '../../bottom_nav_bar/views/bottom_nav_bar_view.dart';
@@ -39,11 +36,11 @@ class DataSuccessfully extends StatelessWidget {
           children: [
             SizedBox(height: 140.h),
             Image.asset('images/apply_job/Data Ilustration.png'),
-            Text(S.of(context).YourDataHasBeenSuccessfullySent,style: TextStyle(fontWeight:FontWeight.w500 ,fontSize:24 ,color:Color(0xff111827) ), textAlign: TextAlign.center,),
+            Text(S.of(context).YourDataHasBeenSuccessfullySent,style: const TextStyle(fontWeight:FontWeight.w500 ,fontSize:24 ,color:Color(0xff111827) ), textAlign: TextAlign.center,),
             SizedBox(height: 10.h,),
-            Text(S.of(context).YouWillGetAMessageFromOurTeamAboutTheAnnouncementOfEmployeeAcceptance,style: TextStyle(fontWeight:FontWeight.w400 ,fontSize:16 ,color:Color(0xff6B7280) ), textAlign: TextAlign.center,),
+            Text(S.of(context).YouWillGetAMessageFromOurTeamAboutTheAnnouncementOfEmployeeAcceptance,style: const TextStyle(fontWeight:FontWeight.w400 ,fontSize:16 ,color:Color(0xff6B7280) ), textAlign: TextAlign.center,),
             SizedBox(height: 220.h,),
-            MainButton(buttonText: S.of(context).BackToHome, onPressed: (){Get.to(()=>BottomNavBar());})
+            MainButton(buttonText: Text(S.of(context).BackToHome), onPressed: (){Get.to(()=>const BottomNavBar());})
           ],
         ),
       ),

@@ -98,7 +98,7 @@ class MessageScreen extends StatelessWidget {
                               onTap: () {
                                 Get.to(()=>ChatScreen(title: (messagesJob[index].name)));
                               },
-                              leading:  IconNotification(count: messagesJob.length, image: '',),
+                              leading:  IconNotification(count: messagesJob.length, image: '', onTap: () {  },),
                               title: Text(messagesJob[index].name),
                               subtitle: Text(
                                 messagesJob[index].about,

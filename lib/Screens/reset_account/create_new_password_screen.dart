@@ -11,11 +11,13 @@ class CreateNwePasswordScreen extends StatelessWidget {
 
   final PasswordController  passwordController =Get.put(PasswordController ());
 
+   CreateNwePasswordScreen({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 10).h.w,
+        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 30.h),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -88,12 +90,12 @@ class CreateNwePasswordScreen extends StatelessWidget {
               ),),
               SizedBox(height: 10.h),
               Row(children: [
-                Text(S.of(context).BothPasswordMustMatch,style: TextStyle(color: const Color(0xFF9CA3AF)),)
+                Text(S.of(context).BothPasswordMustMatch,style: const TextStyle(color: Color(0xFF9CA3AF)),)
               ],
               ),
-              SizedBox(height: 300.h),
-              MainButton(buttonText: S.of(context).RestPassword, onPressed: (){
-                Get.to(()=>PasswordChangedSuccesfull());
+              SizedBox(height: 280.h),
+              MainButton(buttonText:Text( S.of(context).RestPassword), onPressed: (){
+                Get.to(()=>const PasswordChangedSuccesfull());
               }),
 
             ],

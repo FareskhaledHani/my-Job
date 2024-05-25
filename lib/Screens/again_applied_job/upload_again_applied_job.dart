@@ -9,6 +9,7 @@ import '../../components/custum_container_buble.dart';
 import '../../components/custum_container_logo__apply_job.dart';
 import '../../components/custum_loaded_pdf.dart';
 import '../../components/custum_up_load_file.dart';
+import '../../core/services/file_picker_helper.dart';
 import '../../generated/l10n.dart';
 import '../slider_screen/extract_widget.dart';
 
@@ -77,7 +78,7 @@ class UpLoadAgainAppliedJob extends StatelessWidget {
                 height: 10.h,
               ),
               CustomUpLoadFileContainer(
-                ontap: () {}, onPressedIcon: () {  },
+                onTap: () {},onTapText: () async {   Map<String, dynamic>? fileInfo = await FilePickerHelper().pickCVFile(); },
               ),
               SizedBox(
                 height: 70.h,

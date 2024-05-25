@@ -1,8 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../component/custom_change_color_container.dart';
-import '../search_screen_filter.dart';
+import '../../cubits/color_container_cubit/contract_and_internship_cubit.dart';
+
 
 class DialogScreenContractOrIntern extends StatelessWidget {
   const DialogScreenContractOrIntern({
@@ -11,33 +13,36 @@ class DialogScreenContractOrIntern extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const DialogContentContractOrIntern();
+    return  MultiBlocProvider(
+  providers: [
+    BlocProvider(
+  create: (context) => AnyInternshipContainer(),
+),
+    BlocProvider(
+      create: (context) => HybridInternshipContainer(),
+    ),
+  ],
+  child: DialogContentContractOrIntern(),
+);
   }
 }
 
-class DialogContentContractOrIntern extends StatefulWidget {
-  const DialogContentContractOrIntern({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  State<DialogContentContractOrIntern> createState() => _DialogContentContractOrInternState();
-}
 
 
 
-class _DialogContentContractOrInternState extends State<DialogContentContractOrIntern> {
-  bool trueThreeButton = false;
-  bool trueFourButton = false;
+class DialogContentContractOrIntern extends StatelessWidget {
+  const DialogContentContractOrIntern({Key? key}) : super(key: key);
+
+
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      shape: RoundedRectangleBorder(
+      shape: const RoundedRectangleBorder(
         borderRadius: BorderRadius.only(topLeft:Radius.circular(30),topRight: Radius.circular(30)),
       ),
       insetPadding: EdgeInsets.only(top: 500.h),
       // Remove padding around the dialog
-      child: Padding(
+      child:  Padding(
         padding: EdgeInsets.all(20.0.sp),
         child: SizedBox(
           width: double.infinity,
@@ -46,9 +51,9 @@ class _DialogContentContractOrInternState extends State<DialogContentContractOrI
               Title(
                   color: Colors.black,
                   child: Text(
-                    'Contract / Internship',
-                    style: TextStyle(
-                        fontSize: 24.sp, fontWeight: FontWeight.bold),
+                    'on-Set / Remote',
+                    style:
+                    TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
                   )),
               SizedBox(
                 height: 40.h,
@@ -60,73 +65,89 @@ class _DialogContentContractOrInternState extends State<DialogContentContractOrI
                   children: [
                     Row(
                       children: [
-                        CustomChangeColorContainer(
-                          OnTap: () {
-                            setState(() {
-                              trueContractButton = !trueContractButton;
-                            });
+                        BlocBuilder<ContractContainer, SelectContract>(
+                          builder: (context, state) {
+                            return CustomChangeColorContainer(
+                              OnTap: () {context.read<ContractContainer>().changeColorContract();},
+                              containerColor: state == SelectContract.selectedContract
+                                  ? const Color(0xffD6E4FF)
+                                  : Colors.white,
+                              borderContainerColor: state == SelectContract.selectedContract
+                                  ? const Color(0xff3366FF)
+                                  : const Color(0xffD1D5DB),
+                              textColor: state == SelectContract.selectedContract
+                                  ? const Color(0xff3366FF)
+                                  : const Color(0xffD1D5DB),
+                              text: S.of(context).Contract,
+                            );
                           },
-                          containerColor: (trueContractButton == false)
-                              ? Colors.white
-                              : const Color(0xffD6E4FF),
-                          borderContainerColor: (trueContractButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          textColor: (trueContractButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          text: 'Contract',
                         ),
-                        CustomChangeColorContainer(
-                          OnTap: () {
-                            setState(() {
-                              trueInternShipButton = !trueInternShipButton;
-                            });
+                        BlocBuilder<InternshipContainer, SelectInternship>(
+                          builder: (context, state) {
+                            return CustomChangeColorContainer(
+                              OnTap: () {
+                                context
+                                    .read<InternshipContainer>()
+                                    .changeColorInternship();
+                              },
+                              containerColor:
+                              state == SelectInternship.selectedInternship
+                                  ? const Color(0xffD6E4FF)
+                                  : Colors.white,
+                              borderContainerColor:
+                              state == SelectInternship.selectedInternship
+                                  ? const Color(0xff3366FF)
+                                  : const Color(0xffD1D5DB),
+                              textColor: state == SelectInternship.selectedInternship
+                                  ? const Color(0xff3366FF)
+                                  : const Color(0xffD1D5DB),
+                              text: S.of(context).InternShip,
+                            );
                           },
-                          containerColor: (trueInternShipButton == false)
-                              ? Colors.white
-                              : const Color(0xffD6E4FF),
-                          borderContainerColor: (trueInternShipButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          textColor: (trueInternShipButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          text: 'Internship',
                         ),
-                        CustomChangeColorContainer(
-                          OnTap: () {
-                            setState(() {
-                              trueThreeButton = !trueThreeButton;
-                            });
+                        BlocBuilder<HybridInternshipContainer, HybridInternship>(
+                          builder: (context, state) {
+                            return CustomChangeColorContainer(
+                              OnTap: () {
+                                context
+                                    .read<HybridInternshipContainer>()
+                                    .changeColorHybrid();
+                              },
+                              containerColor: state == HybridInternship.selectInternship
+                                  ? const Color(0xffD6E4FF)
+                                  : Colors.white,
+                              borderContainerColor:
+                              state == HybridInternship.selectInternship
+                                  ? const Color(0xff3366FF)
+                                  : const Color(0xffD1D5DB),
+                              textColor: state == HybridInternship.selectInternship
+                                  ? const Color(0xff3366FF)
+                                  : const Color(0xffD1D5DB),
+                              text: S.of(context).Hybrid,
+                            );
                           },
-                          containerColor: (trueThreeButton == false)
-                              ? Colors.white
-                              : const Color(0xffD6E4FF),
-                          borderContainerColor: (trueThreeButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          textColor: (trueThreeButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          text: 'Hybrid',
                         ),
-                        CustomChangeColorContainer(
-                          OnTap: () {
-                            setState(() {
-                              trueFourButton = !trueFourButton;
-                            });
+                        BlocBuilder<AnyInternshipContainer, AnyInternship>(
+                          builder: (context, state) {
+                            return CustomChangeColorContainer(
+                              OnTap: () {
+                                context
+                                    .read<AnyInternshipContainer>()
+                                    .changeColorAny();
+                              },
+                              containerColor: state == AnyInternship.selectedAnyInternship
+                                  ? const Color(0xffD6E4FF)
+                                  : Colors.white,
+                              borderContainerColor:
+                              state == AnyInternship.selectedAnyInternship
+                                  ? const Color(0xff3366FF)
+                                  : const Color(0xffD1D5DB),
+                              textColor:state == AnyInternship.selectedAnyInternship
+                                  ? const Color(0xff3366FF)
+                                  : const Color(0xffD1D5DB),
+                              text:S.of(context).Any,
+                            );
                           },
-                          containerColor: (trueFourButton == false)
-                              ? Colors.white
-                              : const Color(0xffD6E4FF),
-                          borderContainerColor: (trueFourButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          textColor: (trueFourButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          text: 'Any',
                         ),
                       ],
                     ),
@@ -142,7 +163,6 @@ class _DialogContentContractOrInternState extends State<DialogContentContractOrI
                 width: double.infinity,
                 //width: 380.w,
                 child: ElevatedButton(
-                  child: Text('Show Result'),
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),
@@ -150,6 +170,7 @@ class _DialogContentContractOrInternState extends State<DialogContentContractOrI
                   onPressed: () {
                     Navigator.pop(context);
                   },
+                  child:  Text(S.of(context).ShowResult),
                 ),
               ),
               //ElevatedButton(onPressed: (){}, child: Text('dnj'))

@@ -2327,6 +2327,46 @@ class S {
       args: [],
     );
   }
+
+  /// `Check Upload Cv And Other File`
+  String get CheckUploadCvAndOtherFile {
+    return Intl.message(
+      'Check Upload Cv And Other File',
+      name: 'CheckUploadCvAndOtherFile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Any`
+  String get Any {
+    return Intl.message(
+      'Any',
+      name: 'Any',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Hybrid`
+  String get Hybrid {
+    return Intl.message(
+      'Hybrid',
+      name: 'Hybrid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Popular Searches`
+  String get PopularSearches {
+    return Intl.message(
+      'Popular Searches',
+      name: 'PopularSearches',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

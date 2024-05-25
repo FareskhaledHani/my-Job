@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import '../../../../../generated/l10n.dart';
 import '../../../component/custom_change_color_container.dart';
-import '../search_screen_filter.dart';
+import '../../cubits/color_container_cubit/remote_and_onsite_cubit.dart';
+
 
 class DialogScreenRemoteOrOnSite extends StatelessWidget {
   const DialogScreenRemoteOrOnSite({
@@ -10,29 +13,29 @@ class DialogScreenRemoteOrOnSite extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const DialogContentRemoteOrOnsite();
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => HybridRemoteContainer(),
+        ),
+        BlocProvider(
+          create: (context) => AnyRemoteContainer(),
+        ),
+      ],
+      child: const DialogContentRemoteOrOnsite(),
+    );
   }
 }
 
-class DialogContentRemoteOrOnsite extends StatefulWidget {
-  const DialogContentRemoteOrOnsite({
-    Key? key,
-  }) : super(key: key);
+class DialogContentRemoteOrOnsite extends StatelessWidget {
+  const DialogContentRemoteOrOnsite({Key? key}) : super(key: key);
 
-  @override
-  State<DialogContentRemoteOrOnsite> createState() => _DialogContentFullOrPartState();
-}
-
-
-
-class _DialogContentFullOrPartState extends State<DialogContentRemoteOrOnsite> {
-  bool trueThreeButton = false;
-  bool trueFourButton = false;
   @override
   Widget build(BuildContext context) {
     return Dialog(
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.only(topLeft:Radius.circular(30),topRight: Radius.circular(30)),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(30), topRight: Radius.circular(30)),
       ),
       insetPadding: EdgeInsets.only(top: 500.h),
       // Remove padding around the dialog
@@ -46,8 +49,8 @@ class _DialogContentFullOrPartState extends State<DialogContentRemoteOrOnsite> {
                   color: Colors.black,
                   child: Text(
                     'on-Set / Remote',
-                    style: TextStyle(
-                        fontSize: 24.sp, fontWeight: FontWeight.bold),
+                    style:
+                        TextStyle(fontSize: 24.sp, fontWeight: FontWeight.bold),
                   )),
               SizedBox(
                 height: 40.h,
@@ -55,77 +58,99 @@ class _DialogContentFullOrPartState extends State<DialogContentRemoteOrOnsite> {
               SizedBox(
                 height: 35.h,
                 child: ListView(
-                  scrollDirection:Axis.horizontal ,
+                  scrollDirection: Axis.horizontal,
                   children: [
                     Row(
                       children: [
-                        CustomChangeColorContainer(
-                          OnTap: () {
-                            setState(() {
-                              trueRemoteButton = !trueRemoteButton;
-                            });
+                        BlocBuilder<RemoteContainer, SelectRemote>(
+                          builder: (context, state) {
+                            return CustomChangeColorContainer(
+                              OnTap: () {
+                                context
+                                    .read<RemoteContainer>()
+                                    .changeColorRemote();
+                              },
+                              containerColor:
+                                  state == SelectRemote.selectedRemote
+                                      ? const Color(0xffD6E4FF)
+                                      : Colors.white,
+                              borderContainerColor:
+                                  state == SelectRemote.selectedRemote
+                                      ? const Color(0xff3366FF)
+                                      : const Color(0xffD1D5DB),
+                              textColor: state == SelectRemote.selectedRemote
+                                  ? const Color(0xff3366FF)
+                                  : const Color(0xffD1D5DB),
+                              text: S.of(context).Remote,
+                            );
                           },
-                          containerColor: (trueRemoteButton == false)
-                              ? Colors.white
-                              : const Color(0xffD6E4FF),
-                          borderContainerColor: (trueRemoteButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          textColor: (trueRemoteButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          text: 'Remote',
                         ),
-                        CustomChangeColorContainer(
-                          OnTap: () {
-                            setState(() {
-                              trueOnSiteButton = !trueOnSiteButton;
-                            });
+                        BlocBuilder<OnSiteContainer, SelectOnSite>(
+                          builder: (context, state) {
+                            return CustomChangeColorContainer(
+                              OnTap: () {
+                                context
+                                    .read<OnSiteContainer>()
+                                    .changeColorOnsite();
+                              },
+                              containerColor:
+                                  state == SelectOnSite.selectedOnSite
+                                      ? const Color(0xffD6E4FF)
+                                      : Colors.white,
+                              borderContainerColor:
+                                  state == SelectOnSite.selectedOnSite
+                                      ? const Color(0xff3366FF)
+                                      : const Color(0xffD1D5DB),
+                              textColor: state == SelectOnSite.selectedOnSite
+                                  ? const Color(0xff3366FF)
+                                  : const Color(0xffD1D5DB),
+                              text: S.of(context).OnSite,
+                            );
                           },
-                          containerColor: (trueOnSiteButton == false)
-                              ? Colors.white
-                              : const Color(0xffD6E4FF),
-                          borderContainerColor: (trueOnSiteButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          textColor: (trueOnSiteButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          text: 'On Site',
                         ),
-                        CustomChangeColorContainer(
-                          OnTap: () {
-                            setState(() {
-                              trueThreeButton = !trueThreeButton;
-                            });
+                        BlocBuilder<HybridRemoteContainer, HybridRemote>(
+                          builder: (context, state) {
+                            return CustomChangeColorContainer(
+                              OnTap: () {
+                                context
+                                    .read<HybridRemoteContainer>()
+                                    .changeColorHybrid();
+                              },
+                              containerColor: state == HybridRemote.selectHybrid
+                                  ? const Color(0xffD6E4FF)
+                                  : Colors.white,
+                              borderContainerColor:
+                                  state == HybridRemote.selectHybrid
+                                      ? const Color(0xff3366FF)
+                                      : const Color(0xffD1D5DB),
+                              textColor: state == HybridRemote.selectHybrid
+                                  ? const Color(0xff3366FF)
+                                  : const Color(0xffD1D5DB),
+                              text: S.of(context).Hybrid,
+                            );
                           },
-                          containerColor: (trueThreeButton == false)
-                              ? Colors.white
-                              : const Color(0xffD6E4FF),
-                          borderContainerColor: (trueThreeButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          textColor: (trueThreeButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          text: 'Hybrid',
                         ),
-                        CustomChangeColorContainer(
-                          OnTap: () {
-                            setState(() {
-                              trueFourButton = !trueFourButton;
-                            });
+                        BlocBuilder<AnyRemoteContainer, AnyRemote>(
+                          builder: (context, state) {
+                            return CustomChangeColorContainer(
+                              OnTap: () {
+                                context
+                                    .read<AnyRemoteContainer>()
+                                    .changeColorAny();
+                              },
+                              containerColor: state == AnyRemote.selectedAnyFull
+                                  ? const Color(0xffD6E4FF)
+                                  : Colors.white,
+                              borderContainerColor:
+                                  state == AnyRemote.selectedAnyFull
+                                      ? const Color(0xff3366FF)
+                                      : const Color(0xffD1D5DB),
+                              textColor: state == AnyRemote.selectedAnyFull
+                                  ? const Color(0xff3366FF)
+                                  : const Color(0xffD1D5DB),
+                              text:S.of(context).Any,
+                            );
                           },
-                          containerColor: (trueFourButton == false)
-                              ? Colors.white
-                              : const Color(0xffD6E4FF),
-                          borderContainerColor: (trueFourButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          textColor: (trueFourButton == false)
-                              ? const Color(0xffD1D5DB)
-                              : const Color(0xff3366FF),
-                          text: 'Any',
                         ),
                       ],
                     ),
@@ -141,7 +166,6 @@ class _DialogContentFullOrPartState extends State<DialogContentRemoteOrOnsite> {
                 width: double.infinity,
                 //width: 380.w,
                 child: ElevatedButton(
-                  child: Text('Show Result'),
                   style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(30)),
@@ -149,6 +173,7 @@ class _DialogContentFullOrPartState extends State<DialogContentRemoteOrOnsite> {
                   onPressed: () {
                     Navigator.pop(context);
                   },
+                  child:  Text(S.of(context).ShowResult),
                 ),
               ),
               //ElevatedButton(onPressed: (){}, child: Text('dnj'))

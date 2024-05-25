@@ -7,24 +7,8 @@ import '../model/model.dart';
 import '../services/services_notification.dart';
 import 'nothing_notification.dart';
 
-class NotificationScreen extends StatefulWidget {
+class NotificationScreen extends StatelessWidget {
   const NotificationScreen({Key? key}) : super(key: key);
-
-  @override
-  State<NotificationScreen> createState() => _NotificationScreenState();
-}
-
-class _NotificationScreenState extends State<NotificationScreen> {
-  ApiServicesNotification apiServicesNotification = ApiServicesNotification();
-  NotificationsJobModel?  notificationsJobModel ;
-
-  @override
-  void initState() {
-    Future.delayed(const Duration(seconds: 0), () async{
-      notificationsJobModel=await apiServicesNotification.getNotificationJob();
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -7,6 +7,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 import '../../../generated/l10n.dart';
+import '../../apply_job/screen_apply_job/bio_data_screen.dart';
 import '../../job_details/screen/job_details_screan.dart';
 import '../../job_details/services/job_details_service.dart';
 import '../home_screen/cubit/icon_cubit/icon_cubit.dart';
@@ -27,7 +28,7 @@ class CustomCarouselSlider extends StatelessWidget {
   final JobDetailsServices jobDetailsServices ;
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<SugesstionJobModel>(
+    return FutureBuilder<SuggestionJobModel>(
       future: apiServices.getSuggestionJob(),
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
@@ -58,6 +59,13 @@ class CustomCarouselSlider extends StatelessWidget {
                   onTap: (){Get.to(() => JobDetailsScreen(jobDetailsServices: jobDetailsServices, jobId:suggestionJob.id , ));},
                   child: Container(
                       decoration: BoxDecoration(
+                          gradient: const LinearGradient(
+                            colors: [Colors.blue, Color(0xFF091A7A)], // Specify your gradient colors
+                            begin: Alignment.topLeft, // Define the gradient start position
+                            end: Alignment.bottomRight, // Define the gradient end position
+                            stops: [0.0, 1.0], // Define the stops for each color
+                            tileMode: TileMode.clamp, // Define how the gradient should tile
+                          ),
                           borderRadius: BorderRadius.circular(20),
                           color: const Color(0xFF091A7A)),
                       height: 199.5.h,
@@ -116,7 +124,6 @@ class CustomCarouselSlider extends StatelessWidget {
                                         color: state == BookmarkState.unBookMarked ? Colors.white : Colors.white,size: 40.sp,
                                       ),
                                       onPressed: ()async {
-                                          //print('tapppppppppped========='+index.toString());
                                         context.read<BookmarkCubit>().toggleBookmark();
                                         final modelPostFav =PostModelJobFavorite(location: suggestionJob.location, image: suggestionJob.image, jobId:suggestionJob.id , like: 1);
                                         await PostFavoriteService().postFavoriteJob(modelPostFav);
@@ -171,7 +178,10 @@ class CustomCarouselSlider extends StatelessWidget {
                                       )
                                     ])),
                                 ElevatedButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    Get.to(()=>
+                                        BioData(jobId: suggestionJob.id,));
+                                  },
                                   style: ButtonStyle(
                                       shape: MaterialStateProperty.all<
                                           RoundedRectangleBorder>(

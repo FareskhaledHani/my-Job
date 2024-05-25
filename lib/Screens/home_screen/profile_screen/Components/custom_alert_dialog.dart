@@ -30,7 +30,6 @@ class LogOutAlertDialog extends StatelessWidget {
                 builder: (context) =>  const LoginScreen(),
               ),);
             // Action to perform when the second button is pressed
-            Navigator.of(context).pop(); // Close the dialog
           },
           child: Text(S.of(context).LogOut,style: const TextStyle(color: Colors.red),),
         ),

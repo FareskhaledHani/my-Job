@@ -1,6 +1,7 @@
 import 'package:finalproject/Screens/home_screen/profile_screen/models/get_profile_model.dart';
 import 'package:finalproject/Screens/portfolio_screen/cubit_portFolio/post_portfolio_cubit/post_portfolio_cubit.dart';
 import 'package:finalproject/components/custum_subtitle_text.dart';
+import 'package:finalproject/core/cash_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -104,10 +105,15 @@ class _ProfileScreenState extends State<ProfileScreen> {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(child:  CircularProgressIndicator());
             } else if (snapshot.hasError) {
-              return Text('Error: ${snapshot.error}');
-            } else {
+              return Column(
+                children: [
+                  const Icon(FontAwesomeIcons.triangleExclamation,color: Colors.red),
+                  SizedBox(height: 20.h),
+                  Text(S.of(context).PleaseCheckYourNetworkAndTryAgain)
+                ],
+              );
+            } else if (snapshot.hasData){
               final getProfileData = snapshot.data!;
-
               return ListView(
                 children: [
                   Stack(
@@ -311,8 +317,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                         ),
                         CustomListTileProfile(
                           title: S.of(context).CompleteProfile,
-                          onpress: () {
-                            Get.to(()=>CompleteProfile(dateController1: dateController1, titleController: titleController, educationKey: educationKey, universityTitleController: universityTitleController, dateController2: dateController2, startYearController: startYearController, companyNameController: companyNameController, experienceKey: experienceKey, endYearController: endYearController, typeWorkController: typeWorkController, locationController: locationController, positionController: positionController,));
+                          onpress: () async{
+                            if (CacheHelper.getCompletePortfolio()==false&&CacheHelper.getCompleteExperience()==false&&CacheHelper.getCompleteEducation()==false&&CacheHelper.getCompletePersonDetails()==false)
+                              { await CacheHelper.storeInt(0);}
+                            final  ratio = await CacheHelper.getInt();
+                            print('===========================$ratio');
+                            Get.to(()=>CompleteProfile(dateController1: dateController1, titleController: titleController, educationKey: educationKey, universityTitleController: universityTitleController, dateController2: dateController2, startYearController: startYearController, companyNameController: companyNameController, experienceKey: experienceKey, endYearController: endYearController, typeWorkController: typeWorkController, locationController: locationController, positionController: positionController, ratioComplete:ratio??0,
+                              initialValueName: name,
+                              initialValueAddress: getProfileData.address,
+                              formKey: formKeyEditProfile,
+                              initialValueNumber: getProfileData.mobile,
+                              initialValueBio: getProfileData.bio,
+                              reloadCallback: () {
+                                getProfileService.getUserProfile();
+                                Navigator.pop(context, true); // Pass true to indicate reload
+                              },));
                           },
                           icon: Icons.lock_outlined,
                         ),
@@ -416,6 +435,16 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   )
                 ],
               );
+
+            }else {
+              return Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Center(child:  Icon(FontAwesomeIcons.triangleExclamation,color: Colors.red)),
+                SizedBox(height: 20.h),
+                Text(S.of(context).PleaseCheckYourNetworkAndTryAgain)
+              ],
+            );
             }
           },
         ),

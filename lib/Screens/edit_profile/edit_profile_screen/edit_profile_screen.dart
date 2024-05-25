@@ -25,7 +25,8 @@ class EditProfile extends StatelessWidget {
      required this.formKey,
       required this.initialValueBio,
       required this.initialValueNumber,
-      required this.reloadCallback, }) : super(key: key);
+      required this.reloadCallback,
+    }) : super(key: key);
   final String initialValueName;
   final String ?initialValueAddress;
   final String ?initialValueBio;
@@ -34,7 +35,7 @@ class EditProfile extends StatelessWidget {
 
     final Function() reloadCallback;
    // final GetProfileService getProfileService;
-   String valueBio='';
+    String valueBio='';
    String valueName='';
    String valueAddress='';
    String valueNumberPhone='';
@@ -141,14 +142,15 @@ class EditProfile extends StatelessWidget {
                    ),
                    Padding(
                      padding:  EdgeInsets.only(top: 100.0.h),
-                     child: Center(child: MainButton(buttonText: Text(S.of(context).Save), onPressed: (){
+                     child: Center(child: MainButton(buttonText: Text(S.of(context).Save), onPressed: () async {
                        if (formKey.currentState!.validate()){
-                         CacheHelper.setCompletePortfolio(true);
+                         if (CacheHelper.getCompletePersonDetails()==false){
+                           CacheHelper.setCompletePersonDetails(true);
+                           await CacheHelper.incrementInt(1);
+                         }
                        EditProfileService().updateUserProfile(bio: valueBio.isEmpty?initialValueBio??valueBio:valueBio, address: valueAddress.isEmpty?initialValueAddress??valueAddress:valueAddress, mobile: valueNumberPhone.isEmpty?initialValueNumber??valueNumberPhone:valueNumberPhone);
                        ServiceUpdateName().updateName(valueName);
-                         // reloadCallback();
-                         Navigator.pop(context);
-
+                         Get.back();
                        }
                      })),
                    )
@@ -161,19 +163,3 @@ class EditProfile extends StatelessWidget {
     );
   }
 }
-
-
-
-// IntlPhoneField(
-//   controller: numberController,
-//    validator:(value){if(value!.number.isEmpty){return 'Name Is Empty';}else if (value.number.length < 10 ) {return 'Phone Number Is Least Please Check Your Phone Number';} },
-//   initialCountryCode: 'EG',
-//   decoration: InputDecoration(
-//     labelText: S.of(context).PhoneNumber,
-//     border: const OutlineInputBorder(
-//       borderSide: BorderSide(),
-//       borderRadius: BorderRadius.all(
-//         Radius.circular(10),),
-//     ),
-//   ),
-// ),

@@ -5,7 +5,7 @@ import '../../../../core/cash_helper.dart';
 class ApiServices{
   final Url= 'https://project2.amit-learning.com/api/jobs/sugest/2';
   final Dio dio=Dio() ;
-  Future<SugesstionJobModel> getSuggestionJob() async {
+  Future<SuggestionJobModel> getSuggestionJob() async {
     try {
       Response response = await dio.get(
         Url,
@@ -16,7 +16,7 @@ class ApiServices{
       print(response.data);
       print(response.statusCode);
       if(response.statusCode==200){
-        return SugesstionJobModel.fromJson(response.data['data']);
+        return SuggestionJobModel.fromJson(response.data['data']);
       }else {
         throw Exception('Failed to load suggestion job data');
       }

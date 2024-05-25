@@ -75,7 +75,7 @@ class ChatScreen extends StatelessWidget {
                     height: 45.h,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(60),
-                      color: Color(0xffFAFAFA)
+                      color: const Color(0xffFAFAFA)
                     ),
                     child: TextField(
                       // cursorColor: Colors.blue,
@@ -86,7 +86,7 @@ class ChatScreen extends StatelessWidget {
                         hoverColor: Colors.blue,
                         focusColor: Colors.blue,
                         labelText: S.of(context).WriteAMessage,
-                        labelStyle: TextStyle(color: Color(0xff9CA3AF)),
+                        labelStyle: const TextStyle(color: Color(0xff9CA3AF)),
                     ),
                     ),
                   ),

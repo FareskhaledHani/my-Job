@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import '../../components/custom_line_divider_text.dart';
 import '../../components/custom_main_button.dart';
 import '../../components/custom_text_field_with_controller.dart';
@@ -13,6 +12,7 @@ import '../../components/custum_sighn_with_google_Facebook.dart';
 import '../../core/cash_helper.dart';
 import '../../generated/l10n.dart';
 import '../bottom_nav_bar/views/bottom_nav_bar_view.dart';
+import '../reset_account/reset_account_screen.dart';
 import 'auth_cubit.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -156,7 +156,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           title: Text(S.of(context).RememberMe),
                           textColor: Colors.grey,
                           trailing: TextButton(
-                              onPressed: () {},
+                              onPressed: () {Get.to(const ResetScreen());},
                               child: Text(S.of(context).ForgetPassword)),
                         ),
                       ),

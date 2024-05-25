@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
-import 'package:finalproject/constant/constants.dart';
 import 'package:meta/meta.dart';
 import '../../../../../core/cash_helper.dart';
 import '../../models/filter_model.dart';
@@ -26,7 +25,7 @@ class FilterCubit extends Cubit<FilterState> {
           // 'salary':salary,
         },
       );
-      print(response.data);
+      print('-----------------------------------${response.data}');
       if (response.statusCode == 200) {
         JobsResponseFilter jobsResponse = JobsResponseFilter.fromJson(response.data);
         emit(GetFilterJobSuccess(jobsResponse.data));

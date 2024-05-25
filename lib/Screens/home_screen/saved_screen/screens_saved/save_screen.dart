@@ -27,11 +27,6 @@ class SaveScreen extends StatefulWidget {
 class _SaveScreenState extends State<SaveScreen> {
 
   bool shouldReload = false; // State variable to trigger reload
-  // void initState() {
-  //   Future.delayed(const Duration(seconds: 4), () async {
-  //   });
-  //   super.initState();
-  // }
   void reloadFutureBuilder() {
     Future.delayed(const Duration(seconds: 1), (){
       setState(() {
@@ -133,9 +128,7 @@ class _SaveScreenState extends State<SaveScreen> {
                                                     Radius.circular(20.sp))),
                                         child: Padding(
                                           padding: EdgeInsets.all(20.0.sp),
-                                          child: BlocBuilder<
-                                              DeleteFavoriteCubit,
-                                              DeleteFavoriteState>(
+                                          child: BlocBuilder<DeleteFavoriteCubit, DeleteFavoriteState>(
                                             builder:
                                                 (context, deleteFavoriteState) {
                                               if (deleteFavoriteState

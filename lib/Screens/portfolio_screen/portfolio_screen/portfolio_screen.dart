@@ -1,25 +1,21 @@
-import 'package:file_picker/file_picker.dart';
 import 'package:finalproject/components/custum_title_text.dart';
 import 'package:finalproject/constant/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-
 import '../../../../components/custum_loaded_pdf.dart';
 import '../../../../components/custum_up_load_file.dart';
+import '../../../core/cash_helper.dart';
 import '../../../core/services/file_picker_helper.dart';
 import '../../../generated/l10n.dart';
-
 import '../cubit_portFolio/delete_cubit/delete_portfolio_cubit.dart';
 import '../cubit_portFolio/post_portfolio_cubit/post_portfolio_cubit.dart';
-import '../model/model.dart';
 import '../services/post_portfolio_service.dart';
 
 class PortfolioEdit extends StatelessWidget {
   PortfolioEdit({Key? key}) : super(key: key);
    List<dynamic> portfolio=[];
-
 
   PostPortfolioService postPortfolioService = PostPortfolioService();
   FilePickerHelper filePickerHelper = FilePickerHelper();
@@ -65,12 +61,6 @@ class PortfolioEdit extends StatelessWidget {
     );
   }
 
-
-
-// Function to select image file
-
-
-    // BlocProvider.of<PostPortfolioCubit>(context).postPortFolio(cvFilePath, imagePath);
   }
 
 class BodyPortfolioScreen extends StatelessWidget {
@@ -95,9 +85,14 @@ class BodyPortfolioScreen extends StatelessWidget {
             height: 20.h,
           ),
           CustomUpLoadFileContainer(
-            ontap: () async {
+            onTap: () async {
               Map<String, dynamic>? fileInfo = await filePickerHelper.pickCVFile();
               if (fileInfo != null) {
+                if (CacheHelper.getCompletePortfolio()==false){
+                  CacheHelper.setCompletePortfolio(true);
+                  await CacheHelper.incrementInt(1);
+                }
+
                 String filePath = fileInfo['filePath'];
                 String fileName = fileInfo['name'];
                 int fileSize = fileInfo['size'];
@@ -125,7 +120,7 @@ class BodyPortfolioScreen extends StatelessWidget {
               }
               // Pick image file
             },
-            onPressedIcon: () {},
+            onTapText: () async {   Map<String, dynamic>? fileInfo = await FilePickerHelper().pickCVFile(); },
           ),
           SizedBox(height: 20.h),
             BlocBuilder<PostPortfolioCubit, PostPortfolioState>(
@@ -207,6 +202,7 @@ class BodyPortfolioScreen extends StatelessWidget {
                                 titlePdf: fileName,
                                 SubtitlePdf: fileSizeInKB.toString(),
                                 onTapclear: ()async {
+                                  context.read()<PostPortfolioCubit>();
                                   await filePickerHelper.deleteFile(index);
                                   // BlocProvider.of<DeletePortfolioCubit>(
                                   //     context)
@@ -229,17 +225,3 @@ class BodyPortfolioScreen extends StatelessWidget {
     );
   }
 }
-// List<ModelPortfolio> listPdf = [
-//   ModelPortfolio(namePdf: 'namePdf', sizePdf: 'sizePdf'),
-//   ModelPortfolio(namePdf: 'namePdf', sizePdf: 'sizePdf'),
-//   ModelPortfolio(namePdf: 'namePdf', sizePdf: 'sizePdf'),
-//   ModelPortfolio(namePdf: 'namePdf', sizePdf: 'sizePdf'),
-//   ModelPortfolio(namePdf: 'namePdf', sizePdf: 'sizePdf'),
-// ];
-
-// else if (postPortfolioState is PostPortfolioLoadingState) {
-//                       return const Center(child: CircularProgressIndicator());}
-//                     else if (postPortfolioState is PostPortfolioFailureState) {const Center(child: Text('failed'));}
-//                     else if (postPortfolioState is PostPortfolioSuccess) {const Center(child: Text('Success'));}
-//                     else {return const Center(child: Text('Unknown State'));}
-//                     return const Text('data');

@@ -1,7 +1,32 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:file_picker/file_picker.dart';
 
+
+
+
+class PostJobApplication {
+  final File cvFile;
+  final String name;
+  final String email;
+  final String mobile;
+  final String workType;
+  final File otherFile;
+  final int jobsId;
+  final int userId;
+
+  PostJobApplication({
+    required this.cvFile,
+    required this.name,
+    required this.email,
+    required this.mobile,
+    required this.workType,
+    required this.otherFile,
+    required this.jobsId,
+    required this.userId,
+  });
+}
 // class PostApplyJob {
 //   final String name;
 //   final String email;
@@ -65,5 +90,39 @@ class PostApplyJob {
       'jobs_id': jobId,
       'user_id': userId,
     });
+  }
+}
+class JobApplication {
+  final File cvFile;
+  final String name;
+  final String email;
+  final String mobile;
+  final String workType;
+  final File otherFile;
+  final int jobsId;
+  final int userId;
+
+  JobApplication({
+    required this.cvFile,
+    required this.name,
+    required this.email,
+    required this.mobile,
+    required this.workType,
+    required this.otherFile,
+    required this.jobsId,
+    required this.userId,
+  });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'cv_file': cvFile.path,
+      'name': name,
+      'email': email,
+      'mobile': mobile,
+      'work_type': workType,
+      'other_file': otherFile.path,
+      'jobs_id': jobsId,
+      'user_id': userId,
+    };
   }
 }
